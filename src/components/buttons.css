@@ -1,0 +1,88 @@
+/* === 12. Buttons === */
+
+/* 默认按钮 */
+.normal.button,
+a.normal.button,
+input.normal.button,
+button.normal {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: var(--gh-btn-bg) !important;
+  border: 1px solid var(--gh-btn-border) !important;
+  color: var(--gh-text-primary) !important;
+  border-radius: var(--gh-radius) !important;
+  padding: 5px 16px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 20px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: background .15s, border-color .15s !important;
+  white-space: nowrap !important;
+}
+
+.normal.button:hover,
+a.normal.button:hover,
+input.normal.button:hover,
+button.normal:hover {
+  background: var(--gh-btn-hover-bg) !important;
+  border-color: var(--gh-btn-border) !important;
+  text-decoration: none !important;
+}
+
+/* 主要按钮（绿色） */
+.super.button,
+a.super.button,
+input.super.button,
+button.super,
+input[type="submit"].super {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: var(--gh-btn-primary-bg) !important;
+  border: 1px solid rgba(31,35,40,.15) !important;
+  color: #ffffff !important;
+  border-radius: var(--gh-radius) !important;
+  padding: 5px 16px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 20px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: background .15s !important;
+  white-space: nowrap !important;
+}
+
+.super.button:hover,
+a.super.button:hover,
+input.super.button:hover,
+button.super:hover,
+input[type="submit"].super:hover {
+  background: var(--gh-btn-primary-hover) !important;
+  text-decoration: none !important;
+  color: #ffffff !important;
+}
+
+/* 危险操作按钮 */
+.danger.button,
+a.danger.button {
+  color: var(--gh-danger) !important;
+  background: var(--gh-btn-bg) !important;
+  border: 1px solid var(--gh-btn-border) !important;
+  border-radius: var(--gh-radius) !important;
+  padding: 5px 16px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: background .15s, color .15s !important;
+}
+
+.danger.button:hover,
+a.danger.button:hover {
+  background: var(--gh-danger) !important;
+  color: #ffffff !important;
+  border-color: var(--gh-danger) !important;
+  text-decoration: none !important;
+}

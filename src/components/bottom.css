@@ -1,0 +1,31 @@
+/* === 17. Bottom (#Bottom) === */
+
+#Bottom {
+  border-top: 1px solid var(--gh-border) !important;
+  background: var(--gh-canvas) !important;
+  padding: 16px !important;
+  font-size: 12px !important;
+  color: var(--gh-text-secondary) !important;
+  text-align: center !important;
+  margin-top: 40px !important;
+}
+
+#Bottom a {
+  color: var(--gh-text-secondary) !important;
+  text-decoration: none !important;
+}
+
+#Bottom a:hover {
+  color: var(--gh-link) !important;
+  text-decoration: underline !important;
+}
+
+#Bottom .content {
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 8px 16px !important;
+  background: transparent !important;
+}

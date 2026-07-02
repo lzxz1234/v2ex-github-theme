@@ -1,0 +1,104 @@
+/* === 11. Reply / Comments (.reply) === */
+
+/* 回复列表容器 */
+#reply-box,
+.box.reply-box {
+  margin-top: 24px !important;
+}
+
+/* 单条回复 — V2EX 内部为 table 布局 */
+.cell[id^="r_"] {
+  display: block !important;
+  padding: 16px !important;
+  border-bottom: 1px solid var(--gh-border-muted) !important;
+  background: var(--gh-canvas) !important;
+}
+
+.cell[id^="r_"]:last-child {
+  border-bottom: none !important;
+}
+
+.cell[id^="r_"] table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+}
+
+/* 头像 */
+.cell[id^="r_"] img.avatar {
+  width: 40px !important;
+  height: 40px !important;
+  max-height: 40px !important;
+  border-radius: 50% !important;
+  border: 1px solid var(--gh-border) !important;
+}
+
+/* 回复正文卡片 */
+.cell[id^="r_"] .reply_content {
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius) !important;
+  overflow: hidden !important;
+  margin-top: 4px !important;
+}
+
+/* 回复 header bar */
+.cell[id^="r_"] .reply_header,
+.cell[id^="r_"] .small {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: var(--gh-canvas-subtle) !important;
+  border-bottom: 1px solid var(--gh-border) !important;
+  padding: 8px 12px !important;
+  font-size: 13px !important;
+  color: var(--gh-text-secondary) !important;
+}
+
+/* 回复正文 */
+.reply_content {
+  padding: 12px 16px !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  background: var(--gh-canvas) !important;
+  color: var(--gh-text-primary) !important;
+}
+
+.reply_content code {
+  font-family: var(--gh-font-mono) !important;
+  font-size: 85% !important;
+  background: rgba(175,184,193,.2) !important;
+  border-radius: var(--gh-radius) !important;
+  padding: 2px 5px !important;
+}
+
+.reply_content pre {
+  font-family: var(--gh-font-mono) !important;
+  background: var(--gh-canvas-subtle) !important;
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius) !important;
+  padding: 12px !important;
+  overflow-x: auto !important;
+  font-size: 85% !important;
+  margin: 8px 0 !important;
+}
+
+/* OP 徽章 */
+.badge.op,
+.op-label {
+  color: var(--gh-accent) !important;
+  border: 1px solid var(--gh-accent) !important;
+  border-radius: var(--gh-radius-full) !important;
+  padding: 0 7px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  line-height: 18px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+/* 楼层号 */
+.no {
+  margin-left: auto !important;
+  color: var(--gh-text-secondary) !important;
+  font-size: 12px !important;
+  flex-shrink: 0 !important;
+}

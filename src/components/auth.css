@@ -1,0 +1,120 @@
+/* === 16. Login / Register === */
+
+/* 登录/注册页 body 背景 */
+body.signin,
+body.signup,
+#Wrapper.signin,
+#Wrapper.signup {
+  background: var(--gh-canvas-subtle) !important;
+}
+
+/* 登录表单外层居中容器 */
+.page-sign-in,
+.page-sign-up,
+#Wrapper > .content.signin,
+#Wrapper > .content.signup {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  min-height: calc(100vh - 54px) !important;
+  padding: 40px 16px !important;
+  background: var(--gh-canvas-subtle) !important;
+}
+
+/* Logo 居中（登录页顶部大 Logo） */
+.signin-logo,
+.auth-logo {
+  display: flex !important;
+  justify-content: center !important;
+  margin-bottom: 20px !important;
+}
+
+.signin-logo a,
+.auth-logo a {
+  display: block !important;
+  width: 48px !important;
+  height: 48px !important;
+  font-size: 0 !important;
+  background-image: var(--gh-icon-github) !important;
+  background-size: 48px 48px !important;
+  background-repeat: no-repeat !important;
+  filter: invert(1) !important;
+}
+
+/* 表单卡片 */
+.box.signin-form,
+.box.signup-form,
+.cell.signin,
+.cell.signup {
+  background: var(--gh-canvas) !important;
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius) !important;
+  padding: 24px !important;
+  width: 340px !important;
+  max-width: 100% !important;
+}
+
+/* 表单标题 */
+.signin-title,
+.signup-title,
+.box.signin-form h1,
+.box.signup-form h1 {
+  font-size: 24px !important;
+  font-weight: 300 !important;
+  text-align: center !important;
+  color: var(--gh-text-primary) !important;
+  margin: 0 0 20px !important;
+  line-height: 1.25 !important;
+}
+
+/* 表单标签 */
+.signin-form label,
+.signup-form label {
+  display: block !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--gh-text-primary) !important;
+  margin-bottom: 6px !important;
+}
+
+/* 表单输入框全宽 */
+.signin-form input[type="text"],
+.signin-form input[type="email"],
+.signin-form input[type="password"],
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form input[type="password"] {
+  width: 100% !important;
+  margin-bottom: 16px !important;
+}
+
+/* 登录按钮全宽绿色 */
+.signin-form input[type="submit"],
+.signup-form input[type="submit"],
+.signin-form .super.button,
+.signup-form .super.button {
+  width: 100% !important;
+  background: var(--gh-btn-primary-bg) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(31,35,40,.15) !important;
+  border-radius: var(--gh-radius) !important;
+  padding: 8px 16px !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  margin-top: 8px !important;
+}
+
+/* Sign up 链接区 */
+.signup-link-box {
+  margin-top: 16px !important;
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius) !important;
+  padding: 16px !important;
+  text-align: center !important;
+  font-size: 14px !important;
+  color: var(--gh-text-secondary) !important;
+  width: 340px !important;
+  max-width: 100% !important;
+}

@@ -1,0 +1,70 @@
+/* === 15. Profile Page === */
+
+/* 个人主页头像 */
+.profile-avatar img,
+.box .cell img.avatar-large {
+  width: 260px !important;
+  height: 260px !important;
+  border-radius: 50% !important;
+  border: 1px solid var(--gh-border) !important;
+  display: block !important;
+}
+
+/* 用户名 */
+.profile-username,
+h1.username {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  color: var(--gh-text-primary) !important;
+  margin: 16px 0 4px !important;
+  line-height: 1.25 !important;
+}
+
+/* 用户 login/handle（次级用户名） */
+.profile-login,
+span.username-alt {
+  font-size: 20px !important;
+  font-weight: 300 !important;
+  color: var(--gh-text-secondary) !important;
+  margin-bottom: 16px !important;
+}
+
+/* bio */
+.profile-bio,
+.tagline {
+  font-size: 16px !important;
+  color: var(--gh-text-secondary) !important;
+  line-height: 1.5 !important;
+  margin-bottom: 16px !important;
+}
+
+/* 统计行（关注数、主题数等） */
+.profile-stats {
+  display: flex !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  font-size: 14px !important;
+  color: var(--gh-text-secondary) !important;
+  margin-bottom: 16px !important;
+}
+
+.profile-stats a {
+  color: var(--gh-text-secondary) !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+
+.profile-stats a:hover {
+  color: var(--gh-link) !important;
+  text-decoration: underline !important;
+}
+
+/* 成员加入时间等信息行 */
+.profile-meta {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  font-size: 14px !important;
+  color: var(--gh-text-secondary) !important;
+}

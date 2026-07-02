@@ -1,0 +1,122 @@
+/* === 7. Main Content (#Main / .box / .cell) === */
+
+/* 卡片容器 */
+.box {
+  background: var(--gh-canvas) !important;
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius) !important;
+  margin-bottom: 16px !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
+
+/* Cell 分隔行 */
+.cell {
+  padding: 16px !important;
+  border-bottom: 1px solid var(--gh-border-muted) !important;
+  background: var(--gh-canvas) !important;
+}
+
+.cell:last-child {
+  border-bottom: none !important;
+}
+
+/* 右侧栏 — 去卡片化，用分割线代替 */
+#Rightbar .box {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin-bottom: 0 !important;
+  overflow: visible !important;
+  border-bottom: 1px solid var(--gh-border) !important;
+  padding-bottom: 16px !important;
+  margin-bottom: 16px !important;
+}
+
+#Rightbar .box:last-child {
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#Rightbar .cell {
+  padding: 6px 0 !important;
+  border-bottom: none !important;
+  font-size: 13px !important;
+  background: transparent !important;
+}
+
+#Rightbar .cell:first-child {
+  padding-top: 0 !important;
+}
+
+/* 侧栏标题 */
+#Rightbar .cell strong,
+#Rightbar .cell b {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--gh-text-primary) !important;
+}
+
+#Rightbar .fade {
+  color: var(--gh-text-secondary) !important;
+  font-size: 12px !important;
+}
+
+#Rightbar a {
+  color: var(--gh-text-secondary) !important;
+  font-size: 13px !important;
+}
+
+#Rightbar a:hover {
+  color: var(--gh-link) !important;
+  text-decoration: none !important;
+}
+
+/* 侧栏用户统计 table */
+#Rightbar .cell table {
+  border-collapse: collapse !important;
+}
+
+#Rightbar .cell table td {
+  padding: 2px 0 !important;
+  vertical-align: middle !important;
+}
+
+#Rightbar .cell img.avatar {
+  border-radius: 50% !important;
+  border: 1px solid var(--gh-border) !important;
+}
+
+/* 铜币/银币/金币行弱化 */
+#Rightbar .balance,
+#Rightbar .coins {
+  color: var(--gh-text-muted) !important;
+  font-size: 12px !important;
+}
+
+/* 广告区降饱和 */
+#Rightbar .ads,
+#Rightbar .ad,
+#Rightbar [class*="promot"] {
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius) !important;
+  overflow: hidden !important;
+}
+
+/* 热门主题标题 */
+.item_hot_topic_title {
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  line-height: 1.4 !important;
+}
+
+.item_hot_topic_title a {
+  color: var(--gh-text-secondary) !important;
+}
+
+.item_hot_topic_title a:hover {
+  color: var(--gh-link) !important;
+  text-decoration: none !important;
+}

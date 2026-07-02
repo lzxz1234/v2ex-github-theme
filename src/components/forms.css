@@ -1,0 +1,79 @@
+/* === 13. Form Controls === */
+
+/* 文本输入框 */
+input[type="text"].mll,
+input[type="text"].ml,
+input[type="text"].sl,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"] {
+  height: 32px !important;
+  padding: 5px 12px !important;
+  font-size: 14px !important;
+  font-family: var(--gh-font) !important;
+  color: var(--gh-text-primary) !important;
+  background: var(--gh-canvas) !important;
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius) !important;
+  outline: none !important;
+  transition: border-color .15s, box-shadow .15s !important;
+  box-shadow: none !important;
+}
+
+input[type="text"].mll:focus,
+input[type="text"].ml:focus,
+input[type="text"].sl:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="url"]:focus {
+  border-color: var(--gh-accent) !important;
+  box-shadow: 0 0 0 3px rgba(9,105,218,.3) !important;
+  outline: none !important;
+}
+
+/* Textarea */
+textarea {
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+  font-family: var(--gh-font) !important;
+  color: var(--gh-text-primary) !important;
+  background: var(--gh-canvas) !important;
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius) !important;
+  outline: none !important;
+  resize: vertical !important;
+  min-height: 200px !important;
+  transition: border-color .15s, box-shadow .15s !important;
+  line-height: 1.5 !important;
+}
+
+textarea:focus {
+  border-color: var(--gh-accent) !important;
+  box-shadow: 0 0 0 3px rgba(9,105,218,.3) !important;
+  outline: none !important;
+}
+
+/* Select */
+select {
+  height: 32px !important;
+  padding: 5px 30px 5px 12px !important;
+  font-size: 14px !important;
+  font-family: var(--gh-font) !important;
+  color: var(--gh-text-primary) !important;
+  background: var(--gh-canvas) !important;
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius) !important;
+  outline: none !important;
+  appearance: none !important;
+  cursor: pointer !important;
+}
+
+select:focus {
+  border-color: var(--gh-accent) !important;
+  box-shadow: 0 0 0 3px rgba(9,105,218,.3) !important;
+  outline: none !important;
+}

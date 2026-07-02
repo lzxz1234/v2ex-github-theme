@@ -1,0 +1,108 @@
+/* === 9. Topic List (.cell.item) === */
+
+/* 主题列表行 — V2EX 结构为 div.cell.item > table > tr > td */
+#Main .cell.item {
+  padding: 12px 16px !important;
+  transition: background .1s !important;
+}
+
+#Main .cell.item:hover {
+  background: var(--gh-canvas-subtle) !important;
+  box-shadow: none !important;
+}
+
+#Main .cell.item table {
+  width: 100% !important;
+}
+
+#Main .cell.item img.avatar {
+  width: 32px !important;
+  height: 32px !important;
+  max-height: 32px !important;
+  border-radius: 50% !important;
+  border: 1px solid var(--gh-border) !important;
+}
+
+/* 议题图标（issue-opened）— 放在标题链接前 */
+#Main .cell.item .item_title .topic-link::before {
+  content: '' !important;
+  display: inline-block !important;
+  width: 16px !important;
+  height: 16px !important;
+  background-image: var(--gh-icon-issue-opened) !important;
+  background-size: 16px 16px !important;
+  background-repeat: no-repeat !important;
+  margin-right: 8px !important;
+  vertical-align: -2px !important;
+}
+
+/* 主题标题链接 */
+#Main a.topic-link,
+#Main a.topic-link:link,
+#Main a.topic-link:visited {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--gh-text-primary) !important;
+  line-height: 1.4 !important;
+  text-decoration: none !important;
+}
+
+#Main a.topic-link:hover {
+  color: var(--gh-link) !important;
+  text-decoration: none !important;
+}
+
+/* 元信息行 */
+#Main .cell.item .topic_info {
+  font-size: 12px !important;
+  color: var(--gh-text-secondary) !important;
+  margin-top: 4px !important;
+}
+
+/* 节点标签 */
+#Main .cell.item a.node {
+  display: inline-flex !important;
+  align-items: center !important;
+  background: var(--gh-canvas-subtle) !important;
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius-full) !important;
+  padding: 0 7px !important;
+  font-size: 12px !important;
+  color: var(--gh-text-secondary) !important;
+  text-decoration: none !important;
+  line-height: 18px !important;
+}
+
+#Main .cell.item a.node:hover {
+  background: var(--gh-border) !important;
+  text-decoration: none !important;
+}
+
+/* 回复数徽章 */
+#Main .cell.item a.count_livid,
+#Main .cell.item .count_livid {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  font-size: 12px !important;
+  color: var(--gh-text-secondary) !important;
+  text-decoration: none !important;
+  background: transparent !important;
+}
+
+#Main .cell.item a.count_livid::before,
+#Main .cell.item .count_livid::before {
+  content: '' !important;
+  display: inline-block !important;
+  width: 14px !important;
+  height: 14px !important;
+  background-image: var(--gh-icon-comment) !important;
+  background-size: 14px 14px !important;
+  background-repeat: no-repeat !important;
+}
+
+#Main .cell.item a.count_livid:hover,
+#Main .cell.item .count_livid:hover {
+  color: var(--gh-link) !important;
+  text-decoration: none !important;
+}

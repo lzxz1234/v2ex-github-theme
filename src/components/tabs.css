@@ -1,0 +1,126 @@
+/* === 8. Tabs (#Tabs / #SecondaryTabs) === */
+
+/* 主 Tabs 容器 */
+#Tabs {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: flex-end !important;
+  border-bottom: 1px solid var(--gh-border) !important;
+  padding: 0 16px !important;
+  margin-bottom: 0 !important;
+  background: transparent !important;
+  gap: 0 !important;
+}
+
+/* Tab 项 */
+#Tabs a {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 8px 16px !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: var(--gh-text-secondary) !important;
+  border-bottom: 2px solid transparent !important;
+  margin-bottom: -1px !important;
+  text-decoration: none !important;
+  transition: color .15s, border-color .15s !important;
+  white-space: nowrap !important;
+}
+
+#Tabs a:hover {
+  color: var(--gh-text-primary) !important;
+  border-bottom-color: var(--gh-border) !important;
+  text-decoration: none !important;
+}
+
+/* 当前选中 Tab — V2EX 使用 tab_current / tab class */
+#Tabs a.tab_current,
+#Tabs a.tab_current:link,
+#Tabs a.tab_current:visited,
+#Tabs a.tab_current:active,
+#Tabs a.current,
+#Tabs a.active,
+#Tabs .current a {
+  color: var(--gh-text-primary) !important;
+  font-weight: 600 !important;
+  border-bottom: 2px solid #fd8c73 !important;
+  margin-bottom: -1px !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+#Tabs a.tab,
+#Tabs a.tab:link,
+#Tabs a.tab:visited,
+#Tabs a.tab:active {
+  border-bottom: 2px solid transparent !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Tab 内计数徽章 */
+#Tabs .count,
+#Tabs sup {
+  display: inline-flex !important;
+  align-items: center !important;
+  background: var(--gh-canvas-subtle) !important;
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius-full) !important;
+  padding: 0 6px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  margin-left: 6px !important;
+  color: var(--gh-text-secondary) !important;
+  line-height: 18px !important;
+}
+
+/* 二级 Tabs — V2EX 结构为 div.cell#SecondaryTabs */
+#SecondaryTabs {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin-bottom: 0 !important;
+  padding: 10px 16px !important;
+  background: var(--gh-canvas-subtle) !important;
+  align-items: center !important;
+  border-bottom: 1px solid var(--gh-border-muted) !important;
+  /* font-size:0 用于消除 &nbsp; 空隙，子元素须重置 line-height */
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+#SecondaryTabs a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: auto !important;
+  min-height: 24px !important;
+  padding: 4px 12px !important;
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius-full) !important;
+  font-size: 13px !important;
+  line-height: 20px !important;
+  font-weight: 500 !important;
+  color: var(--gh-text-secondary) !important;
+  background: var(--gh-canvas) !important;
+  text-decoration: none !important;
+  transition: background .1s, color .1s, border-color .1s !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+}
+
+#SecondaryTabs a:hover {
+  background: var(--gh-canvas-subtle) !important;
+  color: var(--gh-text-primary) !important;
+  border-color: var(--gh-border) !important;
+  text-decoration: none !important;
+}
+
+#SecondaryTabs a.current,
+#SecondaryTabs a.active,
+#SecondaryTabs .current a {
+  background: var(--gh-canvas-subtle) !important;
+  color: var(--gh-text-primary) !important;
+  font-weight: 600 !important;
+  border-color: var(--gh-border) !important;
+}

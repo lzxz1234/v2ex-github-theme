@@ -1,0 +1,20 @@
+{
+  "name": "v2ex-github-theme",
+  "version": "3.1.0",
+  "private": true,
+  "description": "高仿 GitHub 视觉风格的 V2EX 自定义样式",
+  "scripts": {
+    "split": "node scripts/split-css.mjs",
+    "build:css": "postcss src/index.css -o v2ex-github-theme.css",
+    "build:min": "postcss src/index.css -o v2ex-github-theme.min.css --env production",
+    "build": "npm run build:css && npm run build:min",
+    "watch": "postcss src/index.css -o v2ex-github-theme.css --watch"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.0.7",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "postcss-import": "^16.1.1"
+  }
+}

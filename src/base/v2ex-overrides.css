@@ -1,0 +1,30 @@
+/* === 2.5 V2EX Overrides (combo.css) === */
+
+/* Tab 背景 — 覆盖 a.tab_current:link 等 */
+#Tabs a.tab,
+#Tabs a.tab:link,
+#Tabs a.tab:visited,
+#Tabs a.tab:active,
+#Tabs a.tab_current,
+#Tabs a.tab_current:link,
+#Tabs a.tab_current:visited,
+#Tabs a.tab_current:active {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* 顶栏工具链接 */
+#Top .tools a.top,
+#Top .tools a.top:link,
+#Top .tools a.top:visited,
+#Top .tools a.top:active {
+  background-color: transparent !important;
+}
+
+/* Font Awesome — 由 Octicon ::before 替代 */
+.votes li.fa,
+a.tag li.fa,
+.tag li.fa {
+  display: none !important;
+}
