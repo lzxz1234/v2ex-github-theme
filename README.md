@@ -27,7 +27,7 @@ CDN 地址中的 `@0.0.1` 为锁定版本号，可避免自动更新带来的样
 | 通道 | CDN 地址 |
 |------|---------|
 | 锁定版本（推荐） | `https://cdn.jsdelivr.net/gh/lzxz1234/v2ex-github-theme@0.0.1/v2ex-github-theme.css` |
-| 最新版本 | `https://cdn.jsdelivr.net/gh/lzxz1234/v2ex-github-theme/v2ex-github-theme.css` |
+| 最新版本 | `https://cdn.jsdelivr.net/gh/lzxz1234/v2ex-github-theme@main/v2ex-github-theme.css` |
 
 ## 许可证
 

@@ -87,7 +87,7 @@ a:hover {
    顶部导航 — GitHub 深色通栏
    ============================================================ */
 #Top {
-  height: 48px !important;
+  height: 62px !important;
   background: var(--gh-topbar-bg) !important;
   border-bottom: none !important;
   box-shadow: none !important;
@@ -107,6 +107,7 @@ a:hover {
   gap: 16px !important;
   padding: 0 !important;
   width: 100% !important;
+  background: transparent !important;
 }
 
 /* GitHub Logo 替换 */
@@ -223,7 +224,7 @@ a:hover {
 /* ============================================================
    布局 — 三栏（左导航 + 中内容 + 右功能）
    ============================================================ */
-.content {
+#Wrapper > .content {
   display: flex !important;
   flex-direction: row !important;
   max-width: 1280px !important;
@@ -239,9 +240,9 @@ a:hover {
   flex-shrink: 0 !important;
   order: -1 !important;
   position: sticky !important;
-  top: 72px !important;
+  top: 78px !important;
   align-self: flex-start !important;
-  max-height: calc(100vh - 96px) !important;
+  max-height: calc(100vh - 100px) !important;
   overflow-y: auto !important;
 }
 
@@ -360,7 +361,7 @@ a:hover {
 /* 侧栏 sticky */
 #Rightbar .box:nth-last-child(2) {
   position: sticky;
-  top: 72px;
+  top: 78px;
 }
 
 /* ============================================================
