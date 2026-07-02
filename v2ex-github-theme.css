@@ -171,49 +171,48 @@ img {
   width: 100% !important;
 }
 
-/* Logo — 隐藏原始图片，用 GitHub Octocat SVG 替换 */
-#Top .logo {
+/* Logo — V2EX 使用 #Logo（id），非 .logo class */
+#Top .site-nav > a[name="top"] {
   display: flex !important;
   align-items: center !important;
   flex-shrink: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
 }
 
-#Top .logo a,
-#Top .logo > a {
+#Top #Logo {
   display: block !important;
   width: 32px !important;
   height: 32px !important;
   font-size: 0 !important;
   line-height: 0 !important;
   overflow: hidden !important;
-  background-image: var(--gh-icon-github) !important;
-  background-size: 32px 32px !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
+  background: var(--gh-icon-github) center / 32px 32px no-repeat !important;
   opacity: 1 !important;
   transition: opacity .15s !important;
 }
 
-#Top .logo a:hover {
-  opacity: .8 !important;
+#Top .site-nav > a[name="top"]:hover {
   text-decoration: none !important;
+  background: transparent !important;
 }
 
-#Top .logo img {
-  display: none !important;
+#Top .site-nav > a[name="top"]:hover #Logo {
+  opacity: .8 !important;
 }
 
 /* 站点导航链接（V2EX .site-nav） */
 .site-nav {
   display: flex !important;
   align-items: center !important;
-  gap: 0 !important;
+  flex: 1 !important;
+  gap: 16px !important;
   padding: 0 !important;
   margin: 0 !important;
-  flex-shrink: 0 !important;
+  width: 100% !important;
 }
 
-.site-nav a,
+.site-nav > a:not([name="top"]),
 .site-nav .tools a,
 .site-nav .tools > span > a {
   color: var(--gh-topbar-text) !important;
@@ -227,7 +226,7 @@ img {
   text-decoration: none !important;
 }
 
-.site-nav a:hover,
+.site-nav > a:not([name="top"]):hover,
 .site-nav .tools a:hover {
   background: var(--gh-topbar-hover) !important;
   color: #ffffff !important;
@@ -553,10 +552,11 @@ img {
 /* 主 Tabs 容器 */
 #Tabs {
   display: flex !important;
+  flex-wrap: wrap !important;
   align-items: flex-end !important;
   border-bottom: 1px solid var(--gh-border) !important;
-  padding: 0 !important;
-  margin-bottom: 16px !important;
+  padding: 0 16px !important;
+  margin-bottom: 0 !important;
   background: transparent !important;
   gap: 0 !important;
 }
@@ -582,7 +582,10 @@ img {
   text-decoration: none !important;
 }
 
-/* 当前选中 Tab */
+/* 当前选中 Tab — V2EX 使用 tab_current / tab class */
+#Tabs a.tab_current,
+#Tabs a.tab_current:link,
+#Tabs a.tab_current:visited,
 #Tabs a.current,
 #Tabs a.active,
 #Tabs .current a {
@@ -590,6 +593,12 @@ img {
   font-weight: 600 !important;
   border-bottom: 2px solid #fd8c73 !important;
   margin-bottom: -1px !important;
+}
+
+#Tabs a.tab,
+#Tabs a.tab:link,
+#Tabs a.tab:visited {
+  border-bottom: 2px solid transparent !important;
 }
 
 /* Tab 内计数徽章 */
@@ -608,22 +617,25 @@ img {
   line-height: 18px !important;
 }
 
-/* 二级 Tabs */
+/* 二级 Tabs — V2EX 结构为 div.cell#SecondaryTabs */
 #SecondaryTabs {
   display: flex !important;
+  flex-wrap: wrap !important;
   gap: 4px !important;
-  margin-bottom: 16px !important;
-  padding: 0 !important;
-  background: transparent !important;
+  margin-bottom: 0 !important;
+  padding: 8px 16px !important;
+  background: var(--gh-canvas-subtle) !important;
   align-items: center !important;
+  border-bottom: 1px solid var(--gh-border-muted) !important;
 }
 
 #SecondaryTabs a {
   display: inline-flex !important;
   align-items: center !important;
-  padding: 5px 16px !important;
+  padding: 5px 12px !important;
   border-radius: var(--gh-radius) !important;
-  font-size: 14px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
   color: var(--gh-text-secondary) !important;
   text-decoration: none !important;
   transition: background .1s, color .1s !important;
@@ -646,73 +658,64 @@ img {
 
 /* === 9. Topic List (.cell.item) === */
 
-/* 主题列表行 */
-.cell.item {
-  display: flex !important;
-  align-items: flex-start !important;
-  gap: 12px !important;
+/* 主题列表行 — V2EX 结构为 div.cell.item > table > tr > td */
+#Main .cell.item {
   padding: 12px 16px !important;
   transition: background .1s !important;
-  position: relative !important;
 }
 
-.cell.item:hover {
+#Main .cell.item:hover {
   background: var(--gh-canvas-subtle) !important;
+  box-shadow: none !important;
 }
 
-/* 议题图标（issue-opened，绿色） */
-.cell.item::before {
+#Main .cell.item table {
+  width: 100% !important;
+}
+
+#Main .cell.item img.avatar {
+  border-radius: 50% !important;
+  border: 1px solid var(--gh-border) !important;
+}
+
+/* 议题图标（issue-opened）— 放在标题链接前 */
+#Main .cell.item .item_title .topic-link::before {
   content: '' !important;
-  display: block !important;
+  display: inline-block !important;
   width: 16px !important;
   height: 16px !important;
   background-image: var(--gh-icon-issue-opened) !important;
   background-size: 16px 16px !important;
   background-repeat: no-repeat !important;
-  flex-shrink: 0 !important;
-  margin-top: 2px !important;
-}
-
-/* 主题内容区 */
-.cell.item .topic-wrapper,
-.cell.item td:nth-child(2) {
-  flex: 1 !important;
-  min-width: 0 !important;
+  margin-right: 8px !important;
+  vertical-align: -2px !important;
 }
 
 /* 主题标题链接 */
-.cell.item .topic-link,
-.cell.item a.topic-link {
-  display: block !important;
+#Main a.topic-link,
+#Main a.topic-link:link,
+#Main a.topic-link:visited {
   font-size: 15px !important;
   font-weight: 600 !important;
   color: var(--gh-text-primary) !important;
   line-height: 1.4 !important;
   text-decoration: none !important;
-  margin-bottom: 4px !important;
 }
 
-.cell.item .topic-link:hover,
-.cell.item a.topic-link:hover {
+#Main a.topic-link:hover {
   color: var(--gh-link) !important;
   text-decoration: none !important;
 }
 
 /* 元信息行 */
-.cell.item .topic_info,
-.cell.item .small {
-  display: flex !important;
-  align-items: center !important;
-  flex-wrap: wrap !important;
-  gap: 6px !important;
+#Main .cell.item .topic_info {
   font-size: 12px !important;
   color: var(--gh-text-secondary) !important;
   margin-top: 4px !important;
 }
 
 /* 节点标签 */
-.cell.item .node,
-.cell.item a.node {
+#Main .cell.item a.node {
   display: inline-flex !important;
   align-items: center !important;
   background: var(--gh-canvas-subtle) !important;
@@ -725,26 +728,25 @@ img {
   line-height: 18px !important;
 }
 
-.cell.item .node:hover,
-.cell.item a.node:hover {
+#Main .cell.item a.node:hover {
   background: var(--gh-border) !important;
   text-decoration: none !important;
 }
 
 /* 回复数徽章 */
-.cell.item .count_livid,
-.cell.item a.count_livid {
+#Main .cell.item a.count_livid,
+#Main .cell.item .count_livid {
   display: inline-flex !important;
   align-items: center !important;
   gap: 4px !important;
   font-size: 12px !important;
   color: var(--gh-text-secondary) !important;
   text-decoration: none !important;
-  margin-left: auto !important;
-  flex-shrink: 0 !important;
+  background: transparent !important;
 }
 
-.cell.item .count_livid::before {
+#Main .cell.item a.count_livid::before,
+#Main .cell.item .count_livid::before {
   content: '' !important;
   display: inline-block !important;
   width: 14px !important;
@@ -754,7 +756,8 @@ img {
   background-repeat: no-repeat !important;
 }
 
-.cell.item .count_livid:hover {
+#Main .cell.item a.count_livid:hover,
+#Main .cell.item .count_livid:hover {
   color: var(--gh-link) !important;
   text-decoration: none !important;
 }
@@ -1557,4 +1560,28 @@ body.signup,
 #Wrapper.Night .topic_content code,
 #Wrapper.Night .reply_content code {
   background: rgba(110,118,129,.4) !important;
+}
+
+/* Dark 模式下 Tabs / 主题列表 */
+#Wrapper.Night #Tabs a.tab,
+#Wrapper.Night #Tabs a.tab:link,
+#Wrapper.Night #Tabs a.tab:visited {
+  color: var(--gh-text-secondary) !important;
+}
+
+#Wrapper.Night #Tabs a.tab_current,
+#Wrapper.Night #Tabs a.tab_current:link,
+#Wrapper.Night #Tabs a.tab_current:visited {
+  color: var(--gh-text-primary) !important;
+  border-bottom-color: #fd8c73 !important;
+}
+
+#Wrapper.Night #Main a.topic-link,
+#Wrapper.Night #Main a.topic-link:link,
+#Wrapper.Night #Main a.topic-link:visited {
+  color: var(--gh-text-primary) !important;
+}
+
+#Wrapper.Night #Main a.topic-link:hover {
+  color: var(--gh-link) !important;
 }
