@@ -109,6 +109,40 @@
 
 /* === 2. Global Reset === */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  font-family: var(--gh-font) !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  color: var(--gh-text-primary) !important;
+  background: var(--gh-canvas) !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+#Wrapper {
+  background: var(--gh-canvas) !important;
+  min-height: 100vh !important;
+}
+
+a {
+  color: var(--gh-link) !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: underline !important;
+}
+
+img {
+  max-width: 100% !important;
+}
+
 /* === 3. Top Navigation (#Top) === */
 
 /* === 4. Search Box (#search-container) === */
