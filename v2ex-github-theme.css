@@ -145,6 +145,128 @@ img {
 
 /* === 3. Top Navigation (#Top) === */
 
+/* 顶栏容器 */
+#Top {
+  height: 54px !important;
+  background: var(--gh-topbar-bg) !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  width: 100% !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 32 !important;
+  padding: 0 !important;
+}
+
+/* 顶栏内容区 */
+#Top > .content {
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  padding: 0 16px !important;
+  gap: 16px !important;
+  background: transparent !important;
+  width: 100% !important;
+}
+
+/* Logo — 隐藏原始图片，用 GitHub Octocat SVG 替换 */
+#Top .logo {
+  display: flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+}
+
+#Top .logo a,
+#Top .logo > a {
+  display: block !important;
+  width: 32px !important;
+  height: 32px !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  overflow: hidden !important;
+  background-image: var(--gh-icon-github) !important;
+  background-size: 32px 32px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  opacity: 1 !important;
+  transition: opacity .15s !important;
+}
+
+#Top .logo a:hover {
+  opacity: .8 !important;
+  text-decoration: none !important;
+}
+
+#Top .logo img {
+  display: none !important;
+}
+
+/* 站点导航链接（V2EX .site-nav） */
+.site-nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.site-nav a,
+.site-nav .tools a,
+.site-nav .tools > span > a {
+  color: var(--gh-topbar-text) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  padding: 6px 8px !important;
+  border-radius: var(--gh-radius) !important;
+  margin: 0 !important;
+  transition: background .15s, color .15s !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+}
+
+.site-nav a:hover,
+.site-nav .tools a:hover {
+  background: var(--gh-topbar-hover) !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+/* 顶栏右侧图标按钮（通知铃铛、加号） */
+#Top .tools {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  margin-left: auto !important;
+  flex-shrink: 0 !important;
+}
+
+/* 通知铃铛按钮 */
+#Top a[href="/notifications"],
+#Top a[href*="notification"] {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: var(--gh-radius) !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  background-image: var(--gh-icon-bell) !important;
+  background-size: 16px 16px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  transition: background-color .15s !important;
+}
+
+#Top a[href="/notifications"]:hover,
+#Top a[href*="notification"]:hover {
+  background-color: var(--gh-topbar-hover) !important;
+  text-decoration: none !important;
+}
+
 /* === 4. Search Box (#search-container) === */
 
 /* === 5. Three-Column Layout === */
