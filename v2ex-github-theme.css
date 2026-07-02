@@ -1,5 +1,5 @@
 /*!
- * V2EX GitHub Theme v3.0
+ * V2EX GitHub Theme v3.1
  * 像素级还原 GitHub，基于 GitHub Primer 官方设计令牌
  * https://github.com/lzxz1234/v2ex-github-theme
  */
@@ -120,14 +120,26 @@ body {
   font-size: 14px !important;
   line-height: 1.5 !important;
   color: var(--gh-text-primary) !important;
-  background: var(--gh-canvas) !important;
+  background: var(--gh-canvas-subtle) !important;
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale !important;
 }
 
 #Wrapper {
-  background: var(--gh-canvas) !important;
+  background: var(--gh-canvas-subtle) !important;
   min-height: 100vh !important;
+}
+
+/* V2EX 间距工具类 — 由组件 padding/gap 统一控制 */
+#Wrapper .sep20,
+#Wrapper .sep10,
+#Wrapper .sep5 {
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
 }
 
 a {
@@ -141,6 +153,37 @@ a:hover {
 
 img {
   max-width: 100% !important;
+}
+
+/* === 2.5 V2EX Overrides (combo.css) === */
+
+/* Tab 背景 — 覆盖 a.tab_current:link 等 */
+#Tabs a.tab,
+#Tabs a.tab:link,
+#Tabs a.tab:visited,
+#Tabs a.tab:active,
+#Tabs a.tab_current,
+#Tabs a.tab_current:link,
+#Tabs a.tab_current:visited,
+#Tabs a.tab_current:active {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* 顶栏工具链接 */
+#Top .tools a.top,
+#Top .tools a.top:link,
+#Top .tools a.top:visited,
+#Top .tools a.top:active {
+  background-color: transparent !important;
+}
+
+/* Font Awesome — 由 Octicon ::before 替代 */
+.votes li.fa,
+a.tag li.fa,
+.tag li.fa {
+  display: none !important;
 }
 
 /* === 3. Top Navigation (#Top) === */
@@ -345,7 +388,7 @@ img {
   flex-direction: row !important;
   max-width: 1280px !important;
   margin: 0 auto !important;
-  padding: 24px 16px !important;
+  padding: 16px !important;
   gap: 24px !important;
   align-items: flex-start !important;
 }
@@ -360,6 +403,15 @@ img {
   align-self: flex-start !important;
   max-height: calc(100vh - 90px) !important;
   overflow-y: auto !important;
+}
+
+/* V2EX 当前版本 Leftbar 恒为空，隐藏以避免占用 220px */
+#Leftbar:empty {
+  display: none !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 /* 主内容区 */
@@ -531,6 +583,37 @@ img {
   text-decoration: none !important;
 }
 
+/* 侧栏用户统计 table */
+#Rightbar .cell table {
+  border-collapse: collapse !important;
+}
+
+#Rightbar .cell table td {
+  padding: 2px 0 !important;
+  vertical-align: middle !important;
+}
+
+#Rightbar .cell img.avatar {
+  border-radius: 50% !important;
+  border: 1px solid var(--gh-border) !important;
+}
+
+/* 铜币/银币/金币行弱化 */
+#Rightbar .balance,
+#Rightbar .coins {
+  color: var(--gh-text-muted) !important;
+  font-size: 12px !important;
+}
+
+/* 广告区降饱和 */
+#Rightbar .ads,
+#Rightbar .ad,
+#Rightbar [class*="promot"] {
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius) !important;
+  overflow: hidden !important;
+}
+
 /* 热门主题标题 */
 .item_hot_topic_title {
   font-size: 13px !important;
@@ -586,6 +669,7 @@ img {
 #Tabs a.tab_current,
 #Tabs a.tab_current:link,
 #Tabs a.tab_current:visited,
+#Tabs a.tab_current:active,
 #Tabs a.current,
 #Tabs a.active,
 #Tabs .current a {
@@ -593,12 +677,17 @@ img {
   font-weight: 600 !important;
   border-bottom: 2px solid #fd8c73 !important;
   margin-bottom: -1px !important;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 #Tabs a.tab,
 #Tabs a.tab:link,
-#Tabs a.tab:visited {
+#Tabs a.tab:visited,
+#Tabs a.tab:active {
   border-bottom: 2px solid transparent !important;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 /* Tab 内计数徽章 */
@@ -621,30 +710,34 @@ img {
 #SecondaryTabs {
   display: flex !important;
   flex-wrap: wrap !important;
-  gap: 4px !important;
+  gap: 8px !important;
   margin-bottom: 0 !important;
   padding: 8px 16px !important;
   background: var(--gh-canvas-subtle) !important;
   align-items: center !important;
   border-bottom: 1px solid var(--gh-border-muted) !important;
+  font-size: 0 !important;
 }
 
 #SecondaryTabs a {
   display: inline-flex !important;
   align-items: center !important;
-  padding: 5px 12px !important;
-  border-radius: var(--gh-radius) !important;
+  padding: 4px 12px !important;
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius-full) !important;
   font-size: 13px !important;
   font-weight: 500 !important;
   color: var(--gh-text-secondary) !important;
+  background: var(--gh-canvas) !important;
   text-decoration: none !important;
-  transition: background .1s, color .1s !important;
+  transition: background .1s, color .1s, border-color .1s !important;
   white-space: nowrap !important;
 }
 
 #SecondaryTabs a:hover {
   background: var(--gh-canvas-subtle) !important;
   color: var(--gh-text-primary) !important;
+  border-color: var(--gh-border) !important;
   text-decoration: none !important;
 }
 
@@ -654,6 +747,7 @@ img {
   background: var(--gh-canvas-subtle) !important;
   color: var(--gh-text-primary) !important;
   font-weight: 600 !important;
+  border-color: var(--gh-border) !important;
 }
 
 /* === 9. Topic List (.cell.item) === */
@@ -674,6 +768,9 @@ img {
 }
 
 #Main .cell.item img.avatar {
+  width: 32px !important;
+  height: 32px !important;
+  max-height: 32px !important;
   border-radius: 50% !important;
   border: 1px solid var(--gh-border) !important;
 }
@@ -778,6 +875,119 @@ img {
   line-height: 1.3 !important;
   margin: 0 0 8px !important;
   word-break: break-word !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+/* 主题详情 — GitHub Issue Open badge（仅含投票区的主题页） */
+.box .header:has(.votes) h1::before {
+  content: 'Open' !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+  background: var(--gh-success) !important;
+  color: #ffffff !important;
+  border-radius: var(--gh-radius-full) !important;
+  padding: 2px 12px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 20px !important;
+}
+
+.box .header .chevron {
+  color: var(--gh-text-muted) !important;
+}
+
+.box .header .fr img.avatar {
+  width: 48px !important;
+  height: 48px !important;
+  max-height: 48px !important;
+  border-radius: 50% !important;
+  border: 1px solid var(--gh-border) !important;
+}
+
+/* 投票按钮 */
+.votes {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  vertical-align: middle !important;
+}
+
+.votes a.vote {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 28px !important;
+  height: 28px !important;
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius) !important;
+  background: var(--gh-btn-bg) !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  text-decoration: none !important;
+  transition: background .15s, border-color .15s !important;
+}
+
+.votes a.vote:hover {
+  background: var(--gh-btn-hover-bg) !important;
+  border-color: var(--gh-border) !important;
+  text-decoration: none !important;
+}
+
+.votes a.vote:first-of-type::before {
+  content: '' !important;
+  display: block !important;
+  width: 12px !important;
+  height: 12px !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23656d76' d='M4.427 9.573l3.396-3.396a.25.25 0 0 1 .354 0l3.396 3.396A.25.25 0 0 1 11.396 10H4.604a.25.25 0 0 1-.177-.427Z'/%3E%3C/svg%3E") !important;
+  background-size: 12px 12px !important;
+  background-repeat: no-repeat !important;
+  transform: rotate(180deg) !important;
+}
+
+.votes a.vote:last-of-type::before {
+  content: '' !important;
+  display: block !important;
+  width: 12px !important;
+  height: 12px !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23656d76' d='M4.427 9.573l3.396-3.396a.25.25 0 0 1 .354 0l3.396 3.396A.25.25 0 0 1 11.396 10H4.604a.25.25 0 0 1-.177-.427Z'/%3E%3C/svg%3E") !important;
+  background-size: 12px 12px !important;
+  background-repeat: no-repeat !important;
+}
+
+/* 标签 pill */
+a.tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  padding: 0 8px !important;
+  margin: 2px 4px 2px 0 !important;
+  font-size: 12px !important;
+  line-height: 22px !important;
+  color: var(--gh-text-secondary) !important;
+  background: var(--gh-canvas-subtle) !important;
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius-full) !important;
+  text-decoration: none !important;
+}
+
+a.tag::before {
+  content: '' !important;
+  display: inline-block !important;
+  width: 14px !important;
+  height: 14px !important;
+  background-image: var(--gh-icon-tag) !important;
+  background-size: 14px 14px !important;
+  background-repeat: no-repeat !important;
+}
+
+a.tag:hover {
+  background: var(--gh-border) !important;
+  color: var(--gh-text-primary) !important;
+  text-decoration: none !important;
 }
 
 /* 帖子状态 badge（Open 绿色） */
@@ -929,8 +1139,28 @@ img {
   border-bottom: 1px solid var(--gh-border) !important;
   padding: 8px 16px !important;
   display: flex !important;
+  flex-wrap: wrap !important;
   gap: 8px !important;
   align-items: center !important;
+}
+
+.topic_buttons a {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 5px 12px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: var(--gh-text-primary) !important;
+  background: var(--gh-btn-bg) !important;
+  border: 1px solid var(--gh-btn-border) !important;
+  border-radius: var(--gh-radius) !important;
+  text-decoration: none !important;
+  transition: background .15s !important;
+}
+
+.topic_buttons a:hover {
+  background: var(--gh-btn-hover-bg) !important;
+  text-decoration: none !important;
 }
 
 /* === 11. Reply / Comments (.reply) === */
@@ -941,37 +1171,38 @@ img {
   margin-top: 24px !important;
 }
 
-/* 单条回复 */
+/* 单条回复 — V2EX 内部为 table 布局 */
 .cell[id^="r_"] {
-  display: flex !important;
-  gap: 16px !important;
+  display: block !important;
   padding: 16px !important;
   border-bottom: 1px solid var(--gh-border-muted) !important;
   background: var(--gh-canvas) !important;
-  align-items: flex-start !important;
 }
 
 .cell[id^="r_"]:last-child {
   border-bottom: none !important;
 }
 
+.cell[id^="r_"] table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+}
+
 /* 头像 */
 .cell[id^="r_"] img.avatar {
   width: 40px !important;
   height: 40px !important;
+  max-height: 40px !important;
   border-radius: 50% !important;
   border: 1px solid var(--gh-border) !important;
-  flex-shrink: 0 !important;
 }
 
-/* 回复主体 */
-.cell[id^="r_"] .reply_content_wrapper,
-.cell[id^="r_"] > div:not(:first-child) {
-  flex: 1 !important;
-  min-width: 0 !important;
+/* 回复正文卡片 */
+.cell[id^="r_"] .reply_content {
   border: 1px solid var(--gh-border) !important;
   border-radius: var(--gh-radius) !important;
   overflow: hidden !important;
+  margin-top: 4px !important;
 }
 
 /* 回复 header bar */
@@ -1207,6 +1438,69 @@ select:focus {
 }
 
 /* === 14. Node / Tag Pages === */
+
+/* 分页器 */
+.page_normal,
+.page_current,
+.page_input {
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 4px !important;
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+}
+
+.page_normal a,
+.page_current a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 32px !important;
+  height: 32px !important;
+  padding: 0 8px !important;
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius) !important;
+  color: var(--gh-text-primary) !important;
+  background: var(--gh-canvas) !important;
+  text-decoration: none !important;
+  font-size: 13px !important;
+  transition: background .15s, border-color .15s !important;
+}
+
+.page_normal a:hover {
+  background: var(--gh-canvas-subtle) !important;
+  border-color: var(--gh-border) !important;
+  text-decoration: none !important;
+}
+
+.page_current a,
+a.page_current {
+  background: var(--gh-accent) !important;
+  border-color: var(--gh-accent) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.page_input input {
+  width: 48px !important;
+  text-align: center !important;
+}
+
+/* RSS / 订阅链接 */
+#Main .cell a[href*="rss"],
+#Main .cell a[href*="feed"],
+#Main .cell a[href*="planet"] {
+  font-size: 12px !important;
+  color: var(--gh-text-secondary) !important;
+}
+
+#Main .cell a[href*="rss"]:hover,
+#Main .cell a[href*="feed"]:hover,
+#Main .cell a[href*="planet"]:hover {
+  color: var(--gh-link) !important;
+  text-decoration: none !important;
+}
 
 /* 节点页头部 */
 .node-header,
@@ -1467,6 +1761,110 @@ body.signup,
   max-width: 100% !important;
 }
 
+/* === 16.1 Sign In Layout (:has 检测真实 DOM) === */
+
+#Wrapper > .content:has(#Main form input[type="password"]) {
+  flex-direction: column !important;
+  align-items: center !important;
+  min-height: calc(100vh - 54px) !important;
+  padding: 48px 16px !important;
+  background: var(--gh-canvas-subtle) !important;
+}
+
+#Wrapper > .content:has(#Main form input[type="password"]) #Main {
+  order: 1 !important;
+  width: 100% !important;
+  max-width: 340px !important;
+  flex: none !important;
+}
+
+#Wrapper > .content:has(#Main form input[type="password"]) #Rightbar {
+  order: 2 !important;
+  width: 100% !important;
+  max-width: 340px !important;
+  flex: none !important;
+  margin-top: 16px !important;
+}
+
+#Main .box:has(input[type="password"]) {
+  width: 100% !important;
+  max-width: 340px !important;
+}
+
+#Main .box:has(input[type="password"]) .header {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  padding: 12px 16px !important;
+  background: var(--gh-canvas-subtle) !important;
+  border-bottom: 1px solid var(--gh-border) !important;
+}
+
+#Main .box:has(input[type="password"]) .cell table {
+  display: block !important;
+  width: 100% !important;
+}
+
+#Main .box:has(input[type="password"]) .cell table tr {
+  display: block !important;
+  margin-bottom: 16px !important;
+}
+
+#Main .box:has(input[type="password"]) .cell table td {
+  display: block !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+#Main .box:has(input[type="password"]) .cell table td:first-child {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--gh-text-primary) !important;
+  margin-bottom: 6px !important;
+}
+
+#Main .box:has(input[type="password"]) input.sl {
+  width: 100% !important;
+}
+
+#Main .box:has(input[type="password"]) input[type="submit"] {
+  width: 100% !important;
+  margin-top: 8px !important;
+  padding: 8px 16px !important;
+  font-size: 16px !important;
+}
+
+/* OAuth 登录方式 */
+.sign_in_with {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 10px 16px !important;
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius) !important;
+  margin-bottom: 8px !important;
+  cursor: pointer !important;
+  background: var(--gh-canvas) !important;
+  transition: background .15s !important;
+}
+
+.sign_in_with:hover {
+  background: var(--gh-canvas-subtle) !important;
+}
+
+.sign_in_with_label {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: var(--gh-text-primary) !important;
+}
+
+#Rightbar .box:has(.sign_in_methods) .header {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  padding: 12px 16px !important;
+  background: var(--gh-canvas-subtle) !important;
+  border-bottom: 1px solid var(--gh-border) !important;
+}
+
 /* === 17. Bottom (#Bottom) === */
 
 #Bottom {
@@ -1584,4 +1982,70 @@ body.signup,
 
 #Wrapper.Night #Main a.topic-link:hover {
   color: var(--gh-link) !important;
+}
+
+/* Dark — Tab 背景重置 */
+#Wrapper.Night #Tabs a.tab_current,
+#Wrapper.Night #Tabs a.tab_current:link,
+#Wrapper.Night #Tabs a.tab_current:visited,
+#Wrapper.Night #Tabs a.tab_current:active {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Dark — 搜索框 */
+#Wrapper.Night #search-container {
+  background: var(--gh-canvas-inset) !important;
+  border-color: var(--gh-topbar-search-border) !important;
+}
+
+#Wrapper.Night #search-container #search,
+#Wrapper.Night #search-container input[type="text"] {
+  color: var(--gh-text-primary) !important;
+}
+
+/* Dark — 表单控件 */
+#Wrapper.Night input[type="text"],
+#Wrapper.Night input[type="email"],
+#Wrapper.Night input[type="password"],
+#Wrapper.Night textarea,
+#Wrapper.Night select {
+  background: var(--gh-canvas-inset) !important;
+  color: var(--gh-text-primary) !important;
+  border-color: var(--gh-border) !important;
+}
+
+/* Dark — 回复卡片 */
+#Wrapper.Night .cell[id^="r_"] .reply_content {
+  background: var(--gh-canvas) !important;
+  border-color: var(--gh-border) !important;
+}
+
+/* Dark — OAuth / 登录 */
+#Wrapper.Night .sign_in_with {
+  background: var(--gh-canvas) !important;
+  border-color: var(--gh-border) !important;
+}
+
+#Wrapper.Night .sign_in_with:hover {
+  background: var(--gh-canvas-subtle) !important;
+}
+
+/* Dark — 投票按钮 */
+#Wrapper.Night .votes a.vote {
+  background: var(--gh-btn-bg) !important;
+  border-color: var(--gh-btn-border) !important;
+}
+
+#Wrapper.Night .votes a.vote:first-of-type::before,
+#Wrapper.Night .votes a.vote:last-of-type::before {
+  filter: brightness(0) invert(.65) !important;
+}
+
+/* Dark — 侧栏广告 */
+#Wrapper.Night #Rightbar .ads,
+#Wrapper.Night #Rightbar .ad,
+#Wrapper.Night #Rightbar [class*="promot"] {
+  border-color: var(--gh-border) !important;
+  opacity: .9 !important;
 }
