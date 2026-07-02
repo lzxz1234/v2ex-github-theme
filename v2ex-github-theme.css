@@ -712,26 +712,33 @@ a.tag li.fa,
   flex-wrap: wrap !important;
   gap: 8px !important;
   margin-bottom: 0 !important;
-  padding: 8px 16px !important;
+  padding: 10px 16px !important;
   background: var(--gh-canvas-subtle) !important;
   align-items: center !important;
   border-bottom: 1px solid var(--gh-border-muted) !important;
+  /* font-size:0 用于消除 &nbsp; 空隙，子元素须重置 line-height */
   font-size: 0 !important;
+  line-height: 0 !important;
 }
 
 #SecondaryTabs a {
   display: inline-flex !important;
   align-items: center !important;
+  justify-content: center !important;
+  height: auto !important;
+  min-height: 24px !important;
   padding: 4px 12px !important;
   border: 1px solid var(--gh-border) !important;
   border-radius: var(--gh-radius-full) !important;
   font-size: 13px !important;
+  line-height: 20px !important;
   font-weight: 500 !important;
   color: var(--gh-text-secondary) !important;
   background: var(--gh-canvas) !important;
   text-decoration: none !important;
   transition: background .1s, color .1s, border-color .1s !important;
   white-space: nowrap !important;
+  box-sizing: border-box !important;
 }
 
 #SecondaryTabs a:hover {
