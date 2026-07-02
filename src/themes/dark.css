@@ -117,9 +117,22 @@
 }
 
 /* Dark — 回复卡片 */
+#Wrapper.Night .cell[id^="r_"] table tr td:last-child {
+  background: var(--gh-canvas-subtle) !important;
+  border-color: var(--gh-border) !important;
+}
+
 #Wrapper.Night .cell[id^="r_"] .reply_content {
   background: var(--gh-canvas) !important;
-  border-color: var(--gh-border) !important;
+  border-top-color: var(--gh-border) !important;
+}
+
+#Wrapper.Night .cell[id^="r_"] table tr td:last-child > strong a.dark {
+  color: var(--gh-text-primary) !important;
+}
+
+#Wrapper.Night .cell[id^="r_"] table tr td:last-child > strong a.dark:hover {
+  color: var(--gh-link) !important;
 }
 
 /* Dark — OAuth / 登录 */

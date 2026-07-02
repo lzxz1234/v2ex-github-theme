@@ -1231,7 +1231,7 @@ a.tag:hover {
   text-decoration: none !important;
 }
 
-/* === 11. Reply / Comments (.reply) === */
+/* === 11. Reply / Comments — GitHub Issue Comment 卡片风格 === */
 
 /* 回复列表容器 */
 
@@ -1240,25 +1240,53 @@ a.tag:hover {
   margin-top: 24px !important;
 }
 
-/* 单条回复 — V2EX 内部为 table 布局 */
+/* 单条回复：头像列 + 评论卡片，无 timeline 竖线 */
 
 .cell[id^="r_"] {
   display: block !important;
-  padding: 16px !important;
-  border-bottom: 1px solid var(--gh-border-muted) !important;
-  background: var(--gh-canvas) !important;
+  padding: 0 !important;
+  margin-bottom: 16px !important;
+  border-bottom: none !important;
+  background: transparent !important;
 }
 
 .cell[id^="r_"]:last-child {
-  border-bottom: none !important;
+  margin-bottom: 0 !important;
 }
 
-.cell[id^="r_"] table {
+/* table → flex 行 */
+
+.cell[id^="r_"] table,
+.cell[id^="r_"] table tbody,
+.cell[id^="r_"] table tr {
+  display: block !important;
   width: 100% !important;
-  border-collapse: collapse !important;
 }
 
-/* 头像 */
+.cell[id^="r_"] table tr {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 16px !important;
+}
+
+.cell[id^="r_"] table tr td {
+  display: block !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+/* 隐藏头像与正文之间的 spacer 列 */
+
+.cell[id^="r_"] table tr td[width="10"] {
+  display: none !important;
+}
+
+/* 头像列 — 40px */
+
+.cell[id^="r_"] table tr td:first-child {
+  flex: 0 0 40px !important;
+  width: 40px !important;
+}
 
 .cell[id^="r_"] img.avatar {
   width: 40px !important;
@@ -1266,39 +1294,157 @@ a.tag:hover {
   max-height: 40px !important;
   border-radius: 50% !important;
   border: 1px solid var(--gh-border) !important;
+  display: block !important;
 }
 
-/* 回复正文卡片 */
+/* 评论卡片列 */
 
-.cell[id^="r_"] .reply_content {
+.cell[id^="r_"] table tr td[width="auto"],
+.cell[id^="r_"] table tr td:last-child {
+  flex: 1 !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  -moz-column-gap: 6px !important;
+       column-gap: 6px !important;
   border: 1px solid var(--gh-border) !important;
   border-radius: var(--gh-radius) !important;
   overflow: hidden !important;
-  margin-top: 4px !important;
+  background: var(--gh-canvas-subtle) !important;
 }
 
-/* 回复 header bar */
+/* 隐藏 V2EX 间距占位 */
+
+.cell[id^="r_"] .sep3,
+.cell[id^="r_"] .sep5 {
+  display: none !important;
+}
+
+/* 楼层号 — 保留，靠右 */
+
+.cell[id^="r_"] table tr td:last-child > .fr {
+  order: 1 !important;
+  margin-left: auto !important;
+  float: none !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 8px 16px 8px 0 !important;
+}
+
+.cell[id^="r_"] .no {
+  color: var(--gh-text-muted) !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  flex-shrink: 0 !important;
+  margin-left: 0 !important;
+}
+
+.cell[id^="r_"] .no::before {
+  content: '#' !important;
+}
+
+/* Header 元信息行 */
+
+.cell[id^="r_"] table tr td:last-child > strong {
+  order: 0 !important;
+  padding: 8px 0 8px 16px !important;
+  font-weight: 400 !important;
+}
+
+.cell[id^="r_"] table tr td:last-child > strong a.dark {
+  color: var(--gh-text-primary) !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+
+.cell[id^="r_"] table tr td:last-child > strong a.dark:hover {
+  color: var(--gh-link) !important;
+  text-decoration: none !important;
+}
+
+.cell[id^="r_"] table tr td:last-child > .badges {
+  order: 0 !important;
+  padding: 8px 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.cell[id^="r_"] .badges:empty {
+  display: none !important;
+}
+
+.cell[id^="r_"] table tr td:last-child > .ago {
+  order: 0 !important;
+  padding: 8px 0 !important;
+  font-size: 14px !important;
+  color: var(--gh-text-secondary) !important;
+}
+
+.cell[id^="r_"] .ago::before {
+  content: 'commented ' !important;
+}
+
+/* 旧版 reply_header 结构兼容 */
 
 .cell[id^="r_"] .reply_header,
 .cell[id^="r_"] .small {
+  order: 0 !important;
+  flex: 0 0 100% !important;
   display: flex !important;
   align-items: center !important;
   gap: 8px !important;
-  background: var(--gh-canvas-subtle) !important;
-  border-bottom: 1px solid var(--gh-border) !important;
-  padding: 8px 12px !important;
-  font-size: 13px !important;
+  padding: 8px 16px !important;
+  font-size: 14px !important;
   color: var(--gh-text-secondary) !important;
+  border-bottom: 1px solid var(--gh-border) !important;
 }
 
 /* 回复正文 */
 
-.reply_content {
-  padding: 12px 16px !important;
+.cell[id^="r_"] .reply_content {
+  order: 10 !important;
+  flex: 0 0 100% !important;
+  width: 100% !important;
+  border: none !important;
+  border-top: 1px solid var(--gh-border) !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 16px !important;
   font-size: 14px !important;
-  line-height: 1.6 !important;
+  line-height: 1.5 !important;
   background: var(--gh-canvas) !important;
   color: var(--gh-text-primary) !important;
+  overflow: visible !important;
+}
+
+.reply_content a {
+  color: var(--gh-link) !important;
+}
+
+.reply_content a:hover {
+  text-decoration: underline !important;
+}
+
+.reply_content p {
+  margin: 0 0 16px !important;
+}
+
+.reply_content p:last-child {
+  margin-bottom: 0 !important;
+}
+
+.reply_content blockquote {
+  border-left: 4px solid var(--gh-border) !important;
+  color: var(--gh-text-secondary) !important;
+  padding: 0 16px !important;
+  margin: 0 0 16px !important;
+}
+
+.reply_content ul,
+.reply_content ol {
+  padding-left: 2em !important;
+  margin: 0 0 16px !important;
 }
 
 .reply_content code {
@@ -1314,34 +1460,47 @@ a.tag:hover {
   background: var(--gh-canvas-subtle) !important;
   border: 1px solid var(--gh-border) !important;
   border-radius: var(--gh-radius) !important;
-  padding: 12px !important;
+  padding: 16px !important;
   overflow-x: auto !important;
   font-size: 85% !important;
-  margin: 8px 0 !important;
+  line-height: 1.45 !important;
+  margin: 0 0 16px !important;
 }
 
-/* OP 徽章 */
+.reply_content pre code {
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  font-size: 100% !important;
+}
+
+.reply_content img {
+  max-width: 100% !important;
+  border-radius: var(--gh-radius) !important;
+  height: auto !important;
+}
+
+/* OP → Author 徽章（GitHub 样式） */
 
 .badge.op,
 .op-label {
   color: var(--gh-accent) !important;
+  background: transparent !important;
   border: 1px solid var(--gh-accent) !important;
   border-radius: var(--gh-radius-full) !important;
   padding: 0 7px !important;
-  font-size: 12px !important;
+  font-size: 0 !important;
   font-weight: 500 !important;
   line-height: 18px !important;
   display: inline-flex !important;
   align-items: center !important;
 }
 
-/* 楼层号 */
-
-.no {
-  margin-left: auto !important;
-  color: var(--gh-text-secondary) !important;
+.badge.op::after,
+.op-label::after {
+  content: 'Author' !important;
   font-size: 12px !important;
-  flex-shrink: 0 !important;
+  line-height: 18px !important;
 }
 
 /* === 12. Buttons === */
@@ -2131,9 +2290,22 @@ body.signup,
 
 /* Dark — 回复卡片 */
 
+#Wrapper.Night .cell[id^="r_"] table tr td:last-child {
+  background: var(--gh-canvas-subtle) !important;
+  border-color: var(--gh-border) !important;
+}
+
 #Wrapper.Night .cell[id^="r_"] .reply_content {
   background: var(--gh-canvas) !important;
-  border-color: var(--gh-border) !important;
+  border-top-color: var(--gh-border) !important;
+}
+
+#Wrapper.Night .cell[id^="r_"] table tr td:last-child > strong a.dark {
+  color: var(--gh-text-primary) !important;
+}
+
+#Wrapper.Night .cell[id^="r_"] table tr td:last-child > strong a.dark:hover {
+  color: var(--gh-link) !important;
 }
 
 /* Dark — OAuth / 登录 */
