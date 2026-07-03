@@ -48,6 +48,50 @@
   font-size: 13px !important;
 }
 
+.box:has(.cell[id^="r_"]) .cell.ps_container a.page_normal,
+.box:has(.cell[id^="r_"]) .cell.ps_container a.page_current {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 32px !important;
+  height: 32px !important;
+  padding: 0 8px !important;
+  margin: 0 2px !important;
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius) !important;
+  background: var(--gh-canvas) !important;
+  color: var(--gh-text-primary) !important;
+  text-decoration: none !important;
+  vertical-align: middle !important;
+}
+
+.box:has(.cell[id^="r_"]) .cell.ps_container a.page_normal:hover {
+  background: var(--gh-canvas-subtle) !important;
+  text-decoration: none !important;
+}
+
+.box:has(.cell[id^="r_"]) .cell.ps_container a.page_current {
+  background: var(--gh-canvas-subtle) !important;
+  border-color: var(--gh-border) !important;
+  color: var(--gh-text-primary) !important;
+  font-weight: 600 !important;
+}
+
+.box:has(.cell[id^="r_"]) .cell.ps_container input.page_input {
+  display: inline-flex !important;
+  width: 48px !important;
+  height: 32px !important;
+  margin-left: 4px !important;
+  padding: 0 8px !important;
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius) !important;
+  background: var(--gh-canvas) !important;
+  color: var(--gh-text-primary) !important;
+  text-align: center !important;
+  font-size: 13px !important;
+  vertical-align: middle !important;
+}
+
 .box:has(.cell[id^="r_"]) .cell.ps_container table td[width="8%"] {
   flex: 0 0 auto !important;
 }
@@ -75,6 +119,17 @@
   box-shadow: none !important;
 }
 
+.box:has(.cell[id^="r_"]) .cell.ps_container td[width="8%"] .button {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-right: none !important;
+}
+
+.box:has(.cell[id^="r_"]) .cell.ps_container td[width="8%"] .normal_page_right {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
 .box:has(.cell[id^="r_"]) .cell.ps_container .button:hover,
 .box:has(.cell[id^="r_"]) .cell.ps_container .normal_page_right:hover {
   background: var(--gh-canvas-subtle) !important;
@@ -88,14 +143,15 @@
 }
 
 /* 回复列表左右留白 */
-.box:has(.cell[id^="r_"]) > .cell[id^="r_"] {
+#Main .box:has(.cell[id^="r_"]) > .cell[id^="r_"] {
   padding-left: 16px !important;
   padding-right: 16px !important;
 }
 
 /* 覆盖全局 .cell 分隔行样式 */
 #Main .cell[id^="r_"] {
-  padding: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   margin-bottom: 16px !important;
   border-bottom: none !important;
   background: transparent !important;
