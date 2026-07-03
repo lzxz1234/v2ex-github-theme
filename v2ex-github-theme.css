@@ -1250,6 +1250,86 @@ a.tag:hover {
   color: var(--gh-text-secondary) !important;
 }
 
+/* 回复区分页 */
+
+.box:has(.cell[id^="r_"]) .cell.ps_container {
+  padding: 8px 16px !important;
+  border-bottom: 1px solid var(--gh-border) !important;
+  background: var(--gh-canvas) !important;
+}
+
+.box:has(.cell[id^="r_"]) .cell.ps_container table,
+.box:has(.cell[id^="r_"]) .cell.ps_container table tr,
+.box:has(.cell[id^="r_"]) .cell.ps_container table td {
+  display: block !important;
+  width: 100% !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.box:has(.cell[id^="r_"]) .cell.ps_container table tr {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.box:has(.cell[id^="r_"]) .cell.ps_container table td[width="92%"] {
+  flex: 1 !important;
+  min-width: 0 !important;
+  font-size: 0 !important;
+}
+
+.box:has(.cell[id^="r_"]) .cell.ps_container table td[width="92%"] a,
+.box:has(.cell[id^="r_"]) .cell.ps_container table td[width="92%"] input {
+  font-size: 13px !important;
+}
+
+.box:has(.cell[id^="r_"]) .cell.ps_container table td[width="8%"] {
+  flex: 0 0 auto !important;
+}
+
+.box:has(.cell[id^="r_"]) .cell.ps_container table td[width="8%"] table,
+.box:has(.cell[id^="r_"]) .cell.ps_container table td[width="8%"] tr {
+  display: flex !important;
+  gap: 0 !important;
+}
+
+.box:has(.cell[id^="r_"]) .cell.ps_container .button,
+.box:has(.cell[id^="r_"]) .cell.ps_container .normal_page_right {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 32px !important;
+  height: 32px !important;
+  padding: 0 10px !important;
+  border: 1px solid var(--gh-border) !important;
+  border-radius: var(--gh-radius) !important;
+  background: var(--gh-canvas) !important;
+  color: var(--gh-text-primary) !important;
+  font-size: 14px !important;
+  cursor: pointer !important;
+  box-shadow: none !important;
+}
+
+.box:has(.cell[id^="r_"]) .cell.ps_container .button:hover,
+.box:has(.cell[id^="r_"]) .cell.ps_container .normal_page_right:hover {
+  background: var(--gh-canvas-subtle) !important;
+  border-color: var(--gh-border) !important;
+}
+
+.box:has(.cell[id^="r_"]) .cell.ps_container .disable_now {
+  opacity: .5 !important;
+  cursor: default !important;
+  pointer-events: none !important;
+}
+
+/* 回复列表左右留白 */
+
+.box:has(.cell[id^="r_"]) > .cell[id^="r_"] {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
 /* 覆盖全局 .cell 分隔行样式 */
 
 #Main .cell[id^="r_"] {
@@ -1309,6 +1389,12 @@ a.tag:hover {
   display: block !important;
   -o-object-fit: cover !important;
      object-fit: cover !important;
+  clip-path: circle(50%) !important;
+}
+
+#Wrapper #Main .cell[id^="r_"] img.avatar {
+  border-radius: 50% !important;
+  clip-path: circle(50%) !important;
 }
 
 /* 评论卡片列 */
@@ -1341,7 +1427,7 @@ a.tag:hover {
 
 /* Header 行子元素 — 统一灰底 */
 
-#Main .cell[id^="r_"] table tr td:last-child > :not(.reply_content) {
+#Main .cell[id^="r_"] table tr td:last-child > :not(.reply_content):not(.sep3):not(.sep5) {
   font-size: 14px !important;
   line-height: 20px !important;
   display: inline-flex !important;
@@ -1352,10 +1438,42 @@ a.tag:hover {
   padding-bottom: 8px !important;
 }
 
+/* ❤️ 感谢数 — 靠右，紧邻楼层号 */
+
+#Main .cell[id^="r_"] table tr td:last-child > span.small.fade {
+  order: 1 !important;
+  margin-left: auto !important;
+  gap: 4px !important;
+  padding: 8px 8px 8px 0 !important;
+  font-size: 12px !important;
+  color: var(--gh-text-muted) !important;
+  flex: 0 0 auto !important;
+  border-bottom: none !important;
+}
+
+#Main .cell[id^="r_"] table tr td:last-child > span.small.fade ~ .fr {
+  order: 2 !important;
+  margin-left: 0 !important;
+}
+
+#Main .cell[id^="r_"] span.small.fade img {
+  width: 14px !important;
+  height: 14px !important;
+  max-width: 14px !important;
+  max-height: 14px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  clip-path: none !important;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
 /* 楼层号 / 回复按钮 — 靠右 */
 
 #Main .cell[id^="r_"] table tr td:last-child > .fr {
-  order: 1 !important;
+  order: 2 !important;
   margin-left: auto !important;
   float: none !important;
   gap: 8px !important;
@@ -1451,8 +1569,7 @@ a.tag:hover {
 
 /* 旧版 reply_header 结构兼容 */
 
-#Main .cell[id^="r_"] .reply_header,
-#Main .cell[id^="r_"] .small {
+#Main .cell[id^="r_"] .reply_header {
   order: 0 !important;
   flex: 0 0 100% !important;
   display: flex !important;
@@ -2383,6 +2500,13 @@ body.signup,
 
 #Wrapper.Night #Main .cell[id^="r_"] .fr a:hover {
   color: var(--gh-link) !important;
+}
+
+#Wrapper.Night .box:has(.cell[id^="r_"]) .cell.ps_container .button,
+#Wrapper.Night .box:has(.cell[id^="r_"]) .cell.ps_container .normal_page_right {
+  background: var(--gh-canvas) !important;
+  border-color: var(--gh-border) !important;
+  color: var(--gh-text-primary) !important;
 }
 
 /* Dark — OAuth / 登录 */

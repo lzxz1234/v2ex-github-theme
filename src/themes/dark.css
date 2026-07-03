@@ -147,6 +147,13 @@
   color: var(--gh-link) !important;
 }
 
+#Wrapper.Night .box:has(.cell[id^="r_"]) .cell.ps_container .button,
+#Wrapper.Night .box:has(.cell[id^="r_"]) .cell.ps_container .normal_page_right {
+  background: var(--gh-canvas) !important;
+  border-color: var(--gh-border) !important;
+  color: var(--gh-text-primary) !important;
+}
+
 /* Dark — OAuth / 登录 */
 #Wrapper.Night .sign_in_with {
   background: var(--gh-canvas) !important;
