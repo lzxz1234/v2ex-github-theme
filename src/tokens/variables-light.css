@@ -1,12 +1,12 @@
 /* === 1. CSS Variables — Light Mode === */
 
 :root {
-  /* Topbar */
-  --gh-topbar-bg: #ffffff;
+  /* Topbar — 浅灰底，与白色主体区分 */
+  --gh-topbar-bg: #f6f8fa;
   --gh-topbar-text: #656d76;
   --gh-topbar-logo: #1f2328;
   --gh-topbar-hover: rgba(31,35,40,.08);
-  --gh-topbar-search-bg: #f6f8fa;
+  --gh-topbar-search-bg: #ffffff;
   --gh-topbar-search-border: #d0d7de;
   --gh-topbar-border: #d0d7de;
 

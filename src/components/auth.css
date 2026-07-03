@@ -5,7 +5,7 @@ body.signin,
 body.signup,
 #Wrapper.signin,
 #Wrapper.signup {
-  background: var(--gh-canvas-subtle) !important;
+  background: var(--gh-canvas) !important;
 }
 
 /* 登录表单外层居中容器 */
@@ -19,7 +19,7 @@ body.signup,
   justify-content: flex-start !important;
   min-height: calc(100vh - 64px) !important;
   padding: 40px 16px !important;
-  background: var(--gh-canvas-subtle) !important;
+  background: var(--gh-canvas) !important;
 }
 
 /* Logo 居中（登录页顶部大 Logo） */

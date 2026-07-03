@@ -61,6 +61,12 @@
   background-color: transparent !important;
 }
 
+/* combo.css #Wrapper 灰底与顶部阴影纹理 */
+#Wrapper {
+  background-color: var(--gh-canvas) !important;
+  background-image: none !important;
+}
+
 /* combo.css #Top 居中 / 高度 */
 #Top {
   text-align: left !important;

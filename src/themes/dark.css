@@ -1,8 +1,8 @@
 /* === 18. Dark Mode (#Wrapper.Night) === */
 
 #Wrapper.Night {
-  /* Topbar */
-  --gh-topbar-bg: #0d1117;
+  /* Topbar — 略浅于主体，形成分层 */
+  --gh-topbar-bg: #161b22;
   --gh-topbar-search-border: #30363d;
   --gh-topbar-border: #30363d;
 

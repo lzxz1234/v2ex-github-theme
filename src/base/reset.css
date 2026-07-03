@@ -11,13 +11,14 @@ body {
   font-size: 14px !important;
   line-height: 1.5 !important;
   color: var(--gh-text-primary) !important;
-  background: var(--gh-canvas-subtle) !important;
+  background: var(--gh-canvas) !important;
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale !important;
 }
 
 #Wrapper {
-  background: var(--gh-canvas-subtle) !important;
+  background: var(--gh-canvas) !important;
+  background-image: none !important;
   min-height: 100vh !important;
 }
 
