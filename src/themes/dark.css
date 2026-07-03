@@ -118,12 +118,12 @@
 
 /* Dark — 回复卡片 */
 #Wrapper.Night #Main .cell[id^="r_"] table tr td:last-child {
-  background: var(--gh-canvas) !important;
+  background: var(--gh-canvas-subtle) !important;
   border-color: var(--gh-border) !important;
 }
 
 #Wrapper.Night #Main .cell[id^="r_"] table tr td:last-child > :not(.reply_content) {
-  background: var(--gh-canvas-subtle) !important;
+  background: transparent !important;
 }
 
 #Wrapper.Night #Main .cell[id^="r_"] .reply_content {
@@ -140,7 +140,8 @@
 }
 
 #Wrapper.Night #Main .cell[id^="r_"] .fr a {
-  color: var(--gh-text-muted) !important;
+  color: var(--gh-text-secondary) !important;
+  opacity: 1 !important;
 }
 
 #Wrapper.Night #Main .cell[id^="r_"] .fr a:hover {

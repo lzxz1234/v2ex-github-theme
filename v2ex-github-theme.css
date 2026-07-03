@@ -1250,7 +1250,7 @@ a.tag:hover {
   color: var(--gh-text-secondary) !important;
 }
 
-/* 回复区分页 */
+/* 回复区分页 — 仅改造顶层 table，保留内嵌 prev/next table */
 
 .box:has(.cell[id^="r_"]) .cell.ps_container {
   padding: 8px 16px !important;
@@ -1258,30 +1258,34 @@ a.tag:hover {
   background: var(--gh-canvas) !important;
 }
 
-.box:has(.cell[id^="r_"]) .cell.ps_container table,
-.box:has(.cell[id^="r_"]) .cell.ps_container table tr,
-.box:has(.cell[id^="r_"]) .cell.ps_container table td {
-  display: block !important;
+.box:has(.cell[id^="r_"]) .cell.ps_container > table {
   width: 100% !important;
-  border: none !important;
-  padding: 0 !important;
+  border-collapse: collapse !important;
 }
 
-.box:has(.cell[id^="r_"]) .cell.ps_container table tr {
+.box:has(.cell[id^="r_"]) .cell.ps_container > table > tbody > tr {
   display: flex !important;
   align-items: center !important;
   gap: 8px !important;
 }
 
-.box:has(.cell[id^="r_"]) .cell.ps_container table td[width="92%"] {
-  flex: 1 !important;
+.box:has(.cell[id^="r_"]) .cell.ps_container > table > tbody > tr > td[width="92%"] {
+  flex: 1 1 auto !important;
   min-width: 0 !important;
+  display: block !important;
+  padding: 0 !important;
+  border: none !important;
   font-size: 0 !important;
+  line-height: 0 !important;
+  white-space: normal !important;
 }
 
-.box:has(.cell[id^="r_"]) .cell.ps_container table td[width="92%"] a,
-.box:has(.cell[id^="r_"]) .cell.ps_container table td[width="92%"] input {
-  font-size: 13px !important;
+.box:has(.cell[id^="r_"]) .cell.ps_container > table > tbody > tr > td[width="8%"] {
+  flex: 0 0 auto !important;
+  display: block !important;
+  padding: 0 !important;
+  border: none !important;
+  width: auto !important;
 }
 
 .box:has(.cell[id^="r_"]) .cell.ps_container a.page_normal,
@@ -1298,6 +1302,8 @@ a.tag:hover {
   background: var(--gh-canvas) !important;
   color: var(--gh-text-primary) !important;
   text-decoration: none !important;
+  font-size: 13px !important;
+  line-height: 1 !important;
   vertical-align: middle !important;
 }
 
@@ -1314,10 +1320,10 @@ a.tag:hover {
 }
 
 .box:has(.cell[id^="r_"]) .cell.ps_container input.page_input {
-  display: inline-flex !important;
+  display: inline-block !important;
   width: 48px !important;
   height: 32px !important;
-  margin-left: 4px !important;
+  margin: 0 2px !important;
   padding: 0 8px !important;
   border: 1px solid var(--gh-border) !important;
   border-radius: var(--gh-radius) !important;
@@ -1325,17 +1331,28 @@ a.tag:hover {
   color: var(--gh-text-primary) !important;
   text-align: center !important;
   font-size: 13px !important;
+  line-height: 32px !important;
   vertical-align: middle !important;
 }
 
-.box:has(.cell[id^="r_"]) .cell.ps_container table td[width="8%"] {
-  flex: 0 0 auto !important;
+/* prev/next 按钮组 — 恢复内嵌 table 布局 */
+
+.box:has(.cell[id^="r_"]) .cell.ps_container td[width="8%"] > table {
+  display: table !important;
+  width: auto !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
 }
 
-.box:has(.cell[id^="r_"]) .cell.ps_container table td[width="8%"] table,
-.box:has(.cell[id^="r_"]) .cell.ps_container table td[width="8%"] tr {
-  display: flex !important;
-  gap: 0 !important;
+.box:has(.cell[id^="r_"]) .cell.ps_container td[width="8%"] > table tr {
+  display: table-row !important;
+}
+
+.box:has(.cell[id^="r_"]) .cell.ps_container td[width="8%"] > table td {
+  display: table-cell !important;
+  width: auto !important;
+  padding: 0 !important;
+  border: none !important;
 }
 
 .box:has(.cell[id^="r_"]) .cell.ps_container .button,
@@ -1347,12 +1364,13 @@ a.tag:hover {
   height: 32px !important;
   padding: 0 10px !important;
   border: 1px solid var(--gh-border) !important;
-  border-radius: var(--gh-radius) !important;
   background: var(--gh-canvas) !important;
   color: var(--gh-text-primary) !important;
   font-size: 14px !important;
+  line-height: 1 !important;
   cursor: pointer !important;
   box-shadow: none !important;
+  background-image: none !important;
 }
 
 .box:has(.cell[id^="r_"]) .cell.ps_container td[width="8%"] .button {
@@ -1364,6 +1382,12 @@ a.tag:hover {
 .box:has(.cell[id^="r_"]) .cell.ps_container td[width="8%"] .normal_page_right {
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
+  border-radius: 0 var(--gh-radius) var(--gh-radius) 0 !important;
+}
+
+.box:has(.cell[id^="r_"]) .cell.ps_container td[width="8%"] .button:first-child:last-child {
+  border-radius: var(--gh-radius) !important;
+  border-right: 1px solid var(--gh-border) !important;
 }
 
 .box:has(.cell[id^="r_"]) .cell.ps_container .button:hover,
@@ -1453,7 +1477,7 @@ a.tag:hover {
   clip-path: circle(50%) !important;
 }
 
-/* 评论卡片列 */
+/* 评论卡片列 — header 区统一灰底，正文白底 */
 
 #Main .cell[id^="r_"] table tr td[width="auto"],
 #Main .cell[id^="r_"] table tr td:last-child {
@@ -1469,7 +1493,7 @@ a.tag:hover {
   border: 1px solid var(--gh-border) !important;
   border-radius: var(--gh-radius) !important;
   overflow: hidden !important;
-  background: var(--gh-canvas) !important;
+  background: var(--gh-canvas-subtle) !important;
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -1481,7 +1505,7 @@ a.tag:hover {
   display: none !important;
 }
 
-/* Header 行子元素 — 统一灰底 */
+/* Header 行子元素 — 透明背景，继承卡片列灰底 */
 
 #Main .cell[id^="r_"] table tr td:last-child > :not(.reply_content):not(.sep3):not(.sep5) {
   font-size: 14px !important;
@@ -1489,27 +1513,21 @@ a.tag:hover {
   display: inline-flex !important;
   align-items: center !important;
   align-self: stretch !important;
-  background: var(--gh-canvas-subtle) !important;
+  background: transparent !important;
   padding-top: 8px !important;
   padding-bottom: 8px !important;
 }
 
-/* ❤️ 感谢数 — 靠右，紧邻楼层号 */
+/* ❤️ 感谢数 — 右侧，紧邻操作按钮 */
 
 #Main .cell[id^="r_"] table tr td:last-child > span.small.fade {
   order: 1 !important;
   margin-left: auto !important;
   gap: 4px !important;
-  padding: 8px 8px 8px 0 !important;
+  padding: 8px 4px 8px 0 !important;
   font-size: 12px !important;
   color: var(--gh-text-muted) !important;
   flex: 0 0 auto !important;
-  border-bottom: none !important;
-}
-
-#Main .cell[id^="r_"] table tr td:last-child > span.small.fade ~ .fr {
-  order: 2 !important;
-  margin-left: 0 !important;
 }
 
 #Main .cell[id^="r_"] span.small.fade img {
@@ -1526,14 +1544,23 @@ a.tag:hover {
   vertical-align: middle !important;
 }
 
-/* 楼层号 / 回复按钮 — 靠右 */
+/* 楼层号 / 隐藏 / 感谢 / 回复 — 靠右 */
 
 #Main .cell[id^="r_"] table tr td:last-child > .fr {
   order: 2 !important;
   margin-left: auto !important;
   float: none !important;
   gap: 8px !important;
-  padding: 8px 16px 8px 8px !important;
+  padding: 8px 16px 8px 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* 有 ❤️ 时，由 ❤️ 占据右侧留白，.fr 紧随其后 */
+
+#Main .cell[id^="r_"] table tr td:last-child:has(> span.small.fade) > .fr {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
 }
 
 #Main .cell[id^="r_"] .fr a {
@@ -1542,15 +1569,33 @@ a.tag:hover {
   justify-content: center !important;
   min-width: 24px !important;
   height: 24px !important;
-  color: var(--gh-text-muted) !important;
+  color: var(--gh-text-secondary) !important;
   text-decoration: none !important;
-  font-size: 14px !important;
-  line-height: 1 !important;
+  font-size: 12px !important;
+  line-height: 1.2 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  white-space: nowrap !important;
+}
+
+#Main .cell[id^="r_"] .fr a[onclick*="ignoreReply"],
+#Main .cell[id^="r_"] .fr a[onclick*="thankReply"] {
+  min-width: auto !important;
+  height: auto !important;
+  padding: 0 6px !important;
 }
 
 #Main .cell[id^="r_"] .fr a:hover {
   color: var(--gh-link) !important;
   text-decoration: none !important;
+}
+
+/* 覆盖 V2EX 默认 hover 才显示 */
+
+#Main .cell[id^="r_"]:not(:hover) .fr a,
+#Main .cell[id^="r_"] table tr td:last-child .fade {
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 #Main .cell[id^="r_"] .no {
@@ -2533,12 +2578,12 @@ body.signup,
 /* Dark — 回复卡片 */
 
 #Wrapper.Night #Main .cell[id^="r_"] table tr td:last-child {
-  background: var(--gh-canvas) !important;
+  background: var(--gh-canvas-subtle) !important;
   border-color: var(--gh-border) !important;
 }
 
 #Wrapper.Night #Main .cell[id^="r_"] table tr td:last-child > :not(.reply_content) {
-  background: var(--gh-canvas-subtle) !important;
+  background: transparent !important;
 }
 
 #Wrapper.Night #Main .cell[id^="r_"] .reply_content {
@@ -2555,7 +2600,8 @@ body.signup,
 }
 
 #Wrapper.Night #Main .cell[id^="r_"] .fr a {
-  color: var(--gh-text-muted) !important;
+  color: var(--gh-text-secondary) !important;
+  opacity: 1 !important;
 }
 
 #Wrapper.Night #Main .cell[id^="r_"] .fr a:hover {
