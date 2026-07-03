@@ -1,0 +1,96 @@
+/* === Settings Pages (/settings/*) === */
+/* 设置页无 #Tabs，使用 .page-content-header + .cell 内 a.tab；须覆盖误伤的登录页布局 */
+
+#Wrapper > .content:has(#Main .page-content-header):has(#Main form[action^="/settings"]) {
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  min-height: unset !important;
+  padding: 16px !important;
+  background: transparent !important;
+}
+
+#Wrapper > .content:has(#Main .page-content-header):has(#Main form[action^="/settings"]) #Main {
+  order: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  flex: 1 1 0% !important;
+}
+
+#Wrapper > .content:has(#Main .page-content-header):has(#Main form[action^="/settings"]) #Rightbar {
+  order: 1 !important;
+  width: 296px !important;
+  max-width: none !important;
+  flex: 0 0 auto !important;
+  margin-top: 0 !important;
+}
+
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  align-content: flex-start !important;
+  gap: 0 !important;
+  margin: 0 !important;
+  padding: 0 16px !important;
+  border-bottom: 1px solid var(--gh-border) !important;
+  background: var(--gh-canvas) !important;
+}
+
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab,
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab:link,
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab:visited,
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab:active {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 10px 12px !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  font-weight: 400 !important;
+  color: var(--gh-text-secondary) !important;
+  border-bottom: 2px solid transparent !important;
+  margin-bottom: 0 !important;
+  border-radius: 0 !important;
+  text-decoration: none !important;
+  transition: color .15s, border-color .15s !important;
+  white-space: nowrap !important;
+}
+
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab:hover {
+  color: var(--gh-text-primary) !important;
+  border-bottom-color: var(--gh-border) !important;
+  background: transparent !important;
+  text-decoration: none !important;
+}
+
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab_current,
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab_current:link,
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab_current:visited,
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab_current:active,
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab_current:hover {
+  color: var(--gh-text-primary) !important;
+  font-weight: 600 !important;
+  border-bottom: 2px solid #fd8c73 !important;
+  margin-bottom: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+#Main > .box:has(.page-content-header) .page-content-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 16px !important;
+  border-bottom: 1px solid var(--gh-border) !important;
+}
+
+#Main > .box:has(.page-content-header) .page-content-header h2 {
+  margin: 0 !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: var(--gh-text-primary) !important;
+}
+
+#Main > .box:has(.page-content-header) .page-content-header img {
+  width: 48px !important;
+  height: 48px !important;
+}

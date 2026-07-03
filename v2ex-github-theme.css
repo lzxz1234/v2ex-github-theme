@@ -2669,6 +2669,7 @@ body.signin #Wrapper > .content #Rightbar,
   display: flex !important;
   flex-wrap: wrap !important;
   align-items: flex-end !important;
+  align-content: flex-start !important;
   gap: 0 !important;
   margin: 0 !important;
   padding: 0 16px !important;
@@ -2676,7 +2677,10 @@ body.signin #Wrapper > .content #Rightbar,
   background: var(--gh-canvas) !important;
 }
 
-#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab {
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab,
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab:link,
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab:visited,
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab:active {
   display: inline-flex !important;
   align-items: center !important;
   padding: 10px 12px !important;
@@ -2685,7 +2689,7 @@ body.signin #Wrapper > .content #Rightbar,
   font-weight: 400 !important;
   color: var(--gh-text-secondary) !important;
   border-bottom: 2px solid transparent !important;
-  margin-bottom: -1px !important;
+  margin-bottom: 0 !important;
   border-radius: 0 !important;
   text-decoration: none !important;
   transition: color .15s, border-color .15s !important;
@@ -2699,11 +2703,17 @@ body.signin #Wrapper > .content #Rightbar,
   text-decoration: none !important;
 }
 
-#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab_current {
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab_current,
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab_current:link,
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab_current:visited,
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab_current:active,
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab_current:hover {
   color: var(--gh-text-primary) !important;
   font-weight: 600 !important;
   border-bottom: 2px solid #fd8c73 !important;
+  margin-bottom: 0 !important;
   background: transparent !important;
+  background-color: transparent !important;
 }
 
 #Main > .box:has(.page-content-header) .page-content-header {
