@@ -379,7 +379,8 @@
 
 /* "commented" — 放在用户名/徽章之后，避免 .ago::before 折行错位 */
 #Main .cell[id^="r_"] table tr td:last-child > strong::after {
-  content: ' commented' !important;
+  content: 'commented' !important;
+  margin-left: 4px !important;
   font-weight: 400 !important;
   color: var(--gh-text-secondary) !important;
 }
@@ -389,10 +390,10 @@
 }
 
 #Main .cell[id^="r_"] table tr td:last-child > .badges:not(:empty)::after {
-  content: ' commented' !important;
+  content: 'commented' !important;
+  margin-left: 4px !important;
   font-weight: 400 !important;
   color: var(--gh-text-secondary) !important;
-  margin-left: 4px !important;
 }
 
 #Main .cell[id^="r_"] table tr td:last-child > .badges {
