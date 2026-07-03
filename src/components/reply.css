@@ -397,9 +397,10 @@
 
 #Main .cell[id^="r_"] table tr td:last-child > .badges {
   order: 0 !important;
-  padding: 8px 0 8px 4px !important;
+  padding: 8px 0 8px 6px !important;
   display: inline-flex !important;
   align-items: center !important;
+  gap: 4px !important;
 }
 
 #Main .cell[id^="r_"] .badges:empty {
@@ -507,24 +508,44 @@
   height: auto !important;
 }
 
-/* OP → Author 徽章（GitHub 样式） */
-#Main .badge.op,
+/* 回复区徽章 — GitHub Label 胶囊样式 */
+#Main .cell[id^="r_"] .badge,
 #Main .op-label {
-  color: var(--gh-accent) !important;
-  background: transparent !important;
-  border: 1px solid var(--gh-accent) !important;
-  border-radius: var(--gh-radius-full) !important;
-  padding: 0 7px !important;
-  font-size: 0 !important;
-  font-weight: 500 !important;
-  line-height: 18px !important;
   display: inline-flex !important;
   align-items: center !important;
+  justify-content: center !important;
+  border-radius: var(--gh-radius-full) !important;
+  padding: 0 7px !important;
+  font-weight: 500 !important;
+  line-height: 18px !important;
+  border: 1px solid transparent !important;
+  flex-shrink: 0 !important;
+  vertical-align: middle !important;
 }
 
-#Main .badge.op::after,
+/* OP → Author */
+#Main .cell[id^="r_"] .badge.op,
+#Main .op-label {
+  color: var(--gh-accent-emphasis) !important;
+  background: #ddf4ff !important;
+  border-color: rgba(9, 105, 218, 0.2) !important;
+  font-size: 0 !important;
+}
+
+#Main .cell[id^="r_"] .badge.op::after,
 #Main .op-label::after {
   content: 'Author' !important;
   font-size: 12px !important;
   line-height: 18px !important;
+}
+
+/* PRO 会员 */
+#Main .cell[id^="r_"] .badge.pro {
+  color: #9a6700 !important;
+  background: #fff8c5 !important;
+  border-color: rgba(154, 103, 0, 0.2) !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
 }
