@@ -786,7 +786,7 @@ a.tag li.fa,
   text-decoration: none !important;
 }
 
-/* === 8. Tabs (#Tabs / #SecondaryTabs) — 与 #Top 统一的白色通栏带 === */
+/* === 8. Tabs (#Tabs / #SecondaryTabs) — 上下两行合成一个导航区 === */
 
 /* 含 Tabs 的页面：去掉内容区顶内边距，让主栏左侧边框与顶栏底边衔接 */
 
@@ -808,7 +808,7 @@ a.tag li.fa,
   display: none !important;
 }
 
-/* 主 Tabs 容器 — 位于 #Main 列内，宽度随主栏，避免溢出遮挡右侧栏 */
+/* —— 上行：主 Tab 栏 —— */
 
 #Tabs,
 #Tabs.inner {
@@ -817,23 +817,21 @@ a.tag li.fa,
   align-items: flex-end !important;
   margin: 0 !important;
   padding: 0 16px !important;
-  border-bottom: 1px solid var(--gh-border) !important;
+  border-bottom: none !important;
   background: var(--gh-canvas) !important;
   gap: 0 !important;
 }
 
-/* Tab 项 — GitHub 下划线 Tab */
-
 #Tabs a {
   display: inline-flex !important;
   align-items: center !important;
-  padding: 8px 12px !important;
+  padding: 10px 12px !important;
   font-size: 14px !important;
   line-height: 20px !important;
   font-weight: 400 !important;
   color: var(--gh-text-secondary) !important;
   border-bottom: 2px solid transparent !important;
-  margin-bottom: -1px !important;
+  margin-bottom: 0 !important;
   border-radius: 0 !important;
   margin-right: 0 !important;
   text-decoration: none !important;
@@ -848,8 +846,6 @@ a.tag li.fa,
   text-decoration: none !important;
 }
 
-/* 当前选中 Tab — GitHub 橙红下划线 */
-
 #Tabs a.tab_current,
 #Tabs a.tab_current:link,
 #Tabs a.tab_current:visited,
@@ -861,7 +857,7 @@ a.tag li.fa,
   color: var(--gh-text-primary) !important;
   font-weight: 600 !important;
   border-bottom: 2px solid #fd8c73 !important;
-  margin-bottom: -1px !important;
+  margin-bottom: 0 !important;
   background: transparent !important;
   background-color: transparent !important;
   border-radius: 0 !important;
@@ -878,8 +874,6 @@ a.tag li.fa,
   border-radius: 0 !important;
 }
 
-/* Tab 内计数徽章 */
-
 #Tabs .count,
 #Tabs sup {
   display: inline-flex !important;
@@ -895,7 +889,13 @@ a.tag li.fa,
   line-height: 18px !important;
 }
 
-/* 二级 Tabs — 白底 pill 区，位于 #Main 列内 */
+#Tabs img {
+  height: 18px !important;
+  width: auto !important;
+  vertical-align: middle !important;
+}
+
+/* —— 下行：节点快捷入口（略小一号）—— */
 
 #SecondaryTabs,
 #SecondaryTabs.cell {
@@ -903,9 +903,10 @@ a.tag li.fa,
   flex-wrap: wrap !important;
   gap: 4px !important;
   margin: 0 !important;
-  padding: 6px 16px !important;
+  padding: 5px 16px 7px !important;
   background: var(--gh-canvas) !important;
   align-items: center !important;
+  border-top: 1px solid var(--gh-border-muted) !important;
   border-bottom: 1px solid var(--gh-border) !important;
   font-size: 0 !important;
   line-height: 0 !important;
@@ -916,13 +917,13 @@ a.tag li.fa,
   align-items: center !important;
   justify-content: center !important;
   height: auto !important;
-  min-height: 24px !important;
-  padding: 2px 10px !important;
+  min-height: 22px !important;
+  padding: 1px 8px !important;
   border: 1px solid var(--gh-border) !important;
   border-radius: var(--gh-radius-full) !important;
-  font-size: 14px !important;
-  line-height: 20px !important;
-  font-weight: 500 !important;
+  font-size: 12px !important;
+  line-height: 18px !important;
+  font-weight: 400 !important;
   color: var(--gh-text-secondary) !important;
   background: var(--gh-canvas) !important;
   text-decoration: none !important;
@@ -945,6 +946,37 @@ a.tag li.fa,
   color: var(--gh-text-primary) !important;
   font-weight: 600 !important;
   border-color: var(--gh-border) !important;
+}
+
+/* 下行右侧「我要提问」等操作 */
+
+#SecondaryTabs .fr {
+  float: none !important;
+  margin-left: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  font-size: 12px !important;
+  line-height: 18px !important;
+  order: 999 !important;
+}
+
+#SecondaryTabs .fr a {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+  font-weight: 500 !important;
+  color: var(--gh-link) !important;
+}
+
+#SecondaryTabs .fr a:hover {
+  background: transparent !important;
+  text-decoration: underline !important;
+}
+
+#SecondaryTabs .fr .fa {
+  display: none !important;
 }
 
 /* === 9. Topic List (.cell.item) === */
