@@ -24,8 +24,6 @@ const SECTION_MAP = [
   { pattern: /^13\. Form Controls/, file: 'components/forms.css' },
   { pattern: /^14\. Node/, file: 'components/node-tag.css' },
   { pattern: /^15\. Profile/, file: 'components/profile.css' },
-  { pattern: /^16\. Login/, file: 'components/auth.css' },
-  { pattern: /^16\.1 Sign In/, file: 'components/auth-signin.css' },
   { pattern: /^17\. Bottom/, file: 'components/bottom.css' },
   { pattern: /^18\. Dark Mode/, file: 'themes/dark.css' },
 ];

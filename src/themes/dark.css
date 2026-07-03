@@ -194,16 +194,6 @@
   color: var(--gh-text-primary) !important;
 }
 
-/* Dark — OAuth / 登录 */
-#Wrapper.Night .sign_in_with {
-  background: var(--gh-canvas) !important;
-  border-color: var(--gh-border) !important;
-}
-
-#Wrapper.Night .sign_in_with:hover {
-  background: var(--gh-canvas-subtle) !important;
-}
-
 /* Dark — 投票按钮 */
 #Wrapper.Night .votes a.vote {
   background: var(--gh-btn-bg) !important;
