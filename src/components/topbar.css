@@ -1,8 +1,8 @@
 /* === 3. Top Navigation (#Top) === */
 
-/* 顶栏容器 */
+/* 顶栏容器 — GitHub Global Header 64px */
 #Top {
-  height: 54px !important;
+  height: 64px !important;
   background: var(--gh-topbar-bg) !important;
   border-bottom: 1px solid var(--gh-topbar-border) !important;
   box-shadow: none !important;
@@ -43,6 +43,8 @@
   line-height: 0 !important;
   overflow: hidden !important;
   background: var(--gh-icon-github) center / 32px 32px no-repeat !important;
+  background-image: var(--gh-icon-github) !important;
+  background-size: 32px 32px !important;
   opacity: 1 !important;
   transition: opacity .15s !important;
 }
@@ -84,7 +86,7 @@
 .site-nav > a:not([name="top"]):hover,
 .site-nav .tools a:hover {
   background: var(--gh-topbar-hover) !important;
-  color: #ffffff !important;
+  color: var(--gh-text-primary) !important;
   text-decoration: none !important;
 }
 

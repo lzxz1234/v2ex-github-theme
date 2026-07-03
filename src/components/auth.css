@@ -17,7 +17,7 @@ body.signup,
   flex-direction: column !important;
   align-items: center !important;
   justify-content: flex-start !important;
-  min-height: calc(100vh - 54px) !important;
+  min-height: calc(100vh - 64px) !important;
   padding: 40px 16px !important;
   background: var(--gh-canvas-subtle) !important;
 }

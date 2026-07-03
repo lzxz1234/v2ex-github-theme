@@ -1,27 +1,60 @@
-/* === 8. Tabs (#Tabs / #SecondaryTabs) === */
+/* === 8. Tabs (#Tabs / #SecondaryTabs) — 与 #Top 统一的白色通栏带 === */
 
-/* 主 Tabs 容器 */
-#Tabs {
+/* 含分类 Tabs 的首个内容卡片 */
+#Main > .box:has(#Tabs) {
+  margin-top: 0 !important;
+  border-top: none !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  overflow: visible !important;
+}
+
+#Main > .sep20:first-child {
+  display: none !important;
+}
+
+/* 主 Tabs 容器 — 全宽白底，与顶栏对齐 */
+#Tabs,
+#Tabs.inner {
+  position: relative !important;
+  z-index: 0 !important;
   display: flex !important;
   flex-wrap: wrap !important;
   align-items: flex-end !important;
-  border-bottom: 1px solid var(--gh-border) !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
   padding: 0 16px !important;
-  margin-bottom: 0 !important;
+  border-bottom: 1px solid var(--gh-border) !important;
   background: transparent !important;
   gap: 0 !important;
 }
 
-/* Tab 项 */
+#Tabs::before {
+  content: '' !important;
+  position: absolute !important;
+  z-index: -1 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 100vw !important;
+  background: var(--gh-canvas) !important;
+  pointer-events: none !important;
+}
+
+/* Tab 项 — GitHub 下划线 Tab */
 #Tabs a {
   display: inline-flex !important;
   align-items: center !important;
-  padding: 8px 16px !important;
+  padding: 12px 16px !important;
   font-size: 14px !important;
+  line-height: 20px !important;
   font-weight: 400 !important;
   color: var(--gh-text-secondary) !important;
   border-bottom: 2px solid transparent !important;
   margin-bottom: -1px !important;
+  border-radius: 0 !important;
+  margin-right: 0 !important;
   text-decoration: none !important;
   transition: color .15s, border-color .15s !important;
   white-space: nowrap !important;
@@ -30,14 +63,16 @@
 #Tabs a:hover {
   color: var(--gh-text-primary) !important;
   border-bottom-color: var(--gh-border) !important;
+  background: transparent !important;
   text-decoration: none !important;
 }
 
-/* 当前选中 Tab — V2EX 使用 tab_current / tab class */
+/* 当前选中 Tab — GitHub 橙红下划线 */
 #Tabs a.tab_current,
 #Tabs a.tab_current:link,
 #Tabs a.tab_current:visited,
 #Tabs a.tab_current:active,
+#Tabs a.tab_current:hover,
 #Tabs a.current,
 #Tabs a.active,
 #Tabs .current a {
@@ -47,15 +82,18 @@
   margin-bottom: -1px !important;
   background: transparent !important;
   background-color: transparent !important;
+  border-radius: 0 !important;
 }
 
 #Tabs a.tab,
 #Tabs a.tab:link,
 #Tabs a.tab:visited,
-#Tabs a.tab:active {
+#Tabs a.tab:active,
+#Tabs a.tab:hover {
   border-bottom: 2px solid transparent !important;
   background: transparent !important;
   background-color: transparent !important;
+  border-radius: 0 !important;
 }
 
 /* Tab 内计数徽章 */
@@ -74,19 +112,35 @@
   line-height: 18px !important;
 }
 
-/* 二级 Tabs — V2EX 结构为 div.cell#SecondaryTabs */
-#SecondaryTabs {
+/* 二级 Tabs — 白底 pill 区，无灰底通栏 */
+#SecondaryTabs,
+#SecondaryTabs.cell {
+  position: relative !important;
+  z-index: 0 !important;
   display: flex !important;
   flex-wrap: wrap !important;
   gap: 8px !important;
-  margin-bottom: 0 !important;
-  padding: 10px 16px !important;
-  background: var(--gh-canvas-subtle) !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  padding: 12px 16px !important;
+  background: transparent !important;
   align-items: center !important;
-  border-bottom: 1px solid var(--gh-border-muted) !important;
-  /* font-size:0 用于消除 &nbsp; 空隙，子元素须重置 line-height */
+  border-bottom: 1px solid var(--gh-border) !important;
   font-size: 0 !important;
   line-height: 0 !important;
+}
+
+#SecondaryTabs::before {
+  content: '' !important;
+  position: absolute !important;
+  z-index: -1 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 100vw !important;
+  background: var(--gh-canvas) !important;
+  pointer-events: none !important;
 }
 
 #SecondaryTabs a {
@@ -94,11 +148,11 @@
   align-items: center !important;
   justify-content: center !important;
   height: auto !important;
-  min-height: 24px !important;
-  padding: 4px 12px !important;
+  min-height: 28px !important;
+  padding: 5px 12px !important;
   border: 1px solid var(--gh-border) !important;
   border-radius: var(--gh-radius-full) !important;
-  font-size: 13px !important;
+  font-size: 14px !important;
   line-height: 20px !important;
   font-weight: 500 !important;
   color: var(--gh-text-secondary) !important;

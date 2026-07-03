@@ -96,9 +96,17 @@
 #Wrapper.Night #Tabs a.tab_current,
 #Wrapper.Night #Tabs a.tab_current:link,
 #Wrapper.Night #Tabs a.tab_current:visited,
-#Wrapper.Night #Tabs a.tab_current:active {
+#Wrapper.Night #Tabs a.tab_current:active,
+#Wrapper.Night #Tabs a.tab_current:hover,
+#Wrapper.Night a.tab_current:hover {
   background: transparent !important;
   background-color: transparent !important;
+  color: var(--gh-text-primary) !important;
+}
+
+#Wrapper.Night #Tabs::before,
+#Wrapper.Night #SecondaryTabs::before {
+  background: var(--gh-canvas) !important;
 }
 
 /* Dark — 搜索框 */

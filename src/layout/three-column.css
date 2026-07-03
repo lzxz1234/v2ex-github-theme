@@ -17,9 +17,9 @@
   flex-shrink: 0 !important;
   order: -1 !important;
   position: sticky !important;
-  top: 70px !important;
+  top: 80px !important;
   align-self: flex-start !important;
-  max-height: calc(100vh - 90px) !important;
+  max-height: calc(100vh - 100px) !important;
   overflow-y: auto !important;
 }
 

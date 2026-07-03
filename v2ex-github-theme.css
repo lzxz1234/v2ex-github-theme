@@ -159,19 +159,98 @@ img {
 
 /* === 2.5 V2EX Overrides (combo.css) === */
 
-/* Tab 背景 — 覆盖 a.tab_current:link 等 */
+/* combo.css 全局 a.tab / a.tab_current（无 #Tabs 前缀）— 必须整页重置 */
 
+#Wrapper a.tab,
+#Wrapper a.tab:link,
+#Wrapper a.tab:visited,
+#Wrapper a.tab:active,
 #Tabs a.tab,
 #Tabs a.tab:link,
 #Tabs a.tab:visited,
-#Tabs a.tab:active,
-#Tabs a.tab_current,
-#Tabs a.tab_current:link,
-#Tabs a.tab_current:visited,
-#Tabs a.tab_current:active {
+#Tabs a.tab:active {
+  display: inline-flex !important;
+  border-radius: 0 !important;
+  margin-right: 0 !important;
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+#Wrapper a.tab:hover,
+#Tabs a.tab:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: var(--gh-text-primary) !important;
+  text-decoration: none !important;
+}
+
+#Wrapper a.tab_current,
+#Wrapper a.tab_current:link,
+#Wrapper a.tab_current:visited,
+#Wrapper a.tab_current:active,
+#Wrapper a.tab_current:hover,
+#Tabs a.tab_current,
+#Tabs a.tab_current:link,
+#Tabs a.tab_current:visited,
+#Tabs a.tab_current:active,
+#Tabs a.tab_current:hover {
+  display: inline-flex !important;
+  border-radius: 0 !important;
+  margin-right: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--gh-text-primary) !important;
+  text-decoration: none !important;
+}
+
+/* combo.css #Tabs / #SecondaryTabs 容器背景 */
+
+#Tabs,
+#Tabs.inner {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+#SecondaryTabs,
+#SecondaryTabs.cell {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* combo.css #Top 居中 / 高度 */
+
+#Top {
+  text-align: left !important;
+  font-weight: inherit !important;
+  background-size: auto !important;
+}
+
+.site-nav {
+  padding-top: 0 !important;
+}
+
+/* combo.css 搜索框圆角与内边距 */
+
+#search-container {
+  margin: 0 !important;
+  padding-left: 0 !important;
+  filter: none !important;
+}
+
+#search-container::before {
+  filter: none !important;
+  background-color: transparent !important;
+}
+
+#search-container #search {
+  padding: 0 8px 0 32px !important;
+  font-size: 14px !important;
+  line-height: normal !important;
 }
 
 /* 顶栏工具链接 */
@@ -193,10 +272,10 @@ a.tag li.fa,
 
 /* === 3. Top Navigation (#Top) === */
 
-/* 顶栏容器 */
+/* 顶栏容器 — GitHub Global Header 64px */
 
 #Top {
-  height: 54px !important;
+  height: 64px !important;
   background: var(--gh-topbar-bg) !important;
   border-bottom: 1px solid var(--gh-topbar-border) !important;
   box-shadow: none !important;
@@ -239,6 +318,8 @@ a.tag li.fa,
   line-height: 0 !important;
   overflow: hidden !important;
   background: var(--gh-icon-github) center / 32px 32px no-repeat !important;
+  background-image: var(--gh-icon-github) !important;
+  background-size: 32px 32px !important;
   opacity: 1 !important;
   transition: opacity .15s !important;
 }
@@ -281,7 +362,7 @@ a.tag li.fa,
 .site-nav > a:not([name="top"]):hover,
 .site-nav .tools a:hover {
   background: var(--gh-topbar-hover) !important;
-  color: #ffffff !important;
+  color: var(--gh-text-primary) !important;
   text-decoration: none !important;
 }
 
@@ -330,6 +411,8 @@ a.tag li.fa,
   border-radius: var(--gh-radius) !important;
   border: 1px solid var(--gh-topbar-search-border) !important;
   background: var(--gh-topbar-search-bg) !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
   transition: width .3s ease, border-color .15s, box-shadow .15s, background .15s !important;
 }
 
@@ -422,9 +505,9 @@ a.tag li.fa,
   flex-shrink: 0 !important;
   order: -1 !important;
   position: sticky !important;
-  top: 70px !important;
+  top: 80px !important;
   align-self: flex-start !important;
-  max-height: calc(100vh - 90px) !important;
+  max-height: calc(100vh - 100px) !important;
   overflow-y: auto !important;
 }
 
@@ -669,32 +752,66 @@ a.tag li.fa,
   text-decoration: none !important;
 }
 
-/* === 8. Tabs (#Tabs / #SecondaryTabs) === */
+/* === 8. Tabs (#Tabs / #SecondaryTabs) — 与 #Top 统一的白色通栏带 === */
 
-/* 主 Tabs 容器 */
+/* 含分类 Tabs 的首个内容卡片 */
 
-#Tabs {
+#Main > .box:has(#Tabs) {
+  margin-top: 0 !important;
+  border-top: none !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  overflow: visible !important;
+}
+
+#Main > .sep20:first-child {
+  display: none !important;
+}
+
+/* 主 Tabs 容器 — 全宽白底，与顶栏对齐 */
+
+#Tabs,
+#Tabs.inner {
+  position: relative !important;
+  z-index: 0 !important;
   display: flex !important;
   flex-wrap: wrap !important;
   align-items: flex-end !important;
-  border-bottom: 1px solid var(--gh-border) !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
   padding: 0 16px !important;
-  margin-bottom: 0 !important;
+  border-bottom: 1px solid var(--gh-border) !important;
   background: transparent !important;
   gap: 0 !important;
 }
 
-/* Tab 项 */
+#Tabs::before {
+  content: '' !important;
+  position: absolute !important;
+  z-index: -1 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 100vw !important;
+  background: var(--gh-canvas) !important;
+  pointer-events: none !important;
+}
+
+/* Tab 项 — GitHub 下划线 Tab */
 
 #Tabs a {
   display: inline-flex !important;
   align-items: center !important;
-  padding: 8px 16px !important;
+  padding: 12px 16px !important;
   font-size: 14px !important;
+  line-height: 20px !important;
   font-weight: 400 !important;
   color: var(--gh-text-secondary) !important;
   border-bottom: 2px solid transparent !important;
   margin-bottom: -1px !important;
+  border-radius: 0 !important;
+  margin-right: 0 !important;
   text-decoration: none !important;
   transition: color .15s, border-color .15s !important;
   white-space: nowrap !important;
@@ -703,15 +820,17 @@ a.tag li.fa,
 #Tabs a:hover {
   color: var(--gh-text-primary) !important;
   border-bottom-color: var(--gh-border) !important;
+  background: transparent !important;
   text-decoration: none !important;
 }
 
-/* 当前选中 Tab — V2EX 使用 tab_current / tab class */
+/* 当前选中 Tab — GitHub 橙红下划线 */
 
 #Tabs a.tab_current,
 #Tabs a.tab_current:link,
 #Tabs a.tab_current:visited,
 #Tabs a.tab_current:active,
+#Tabs a.tab_current:hover,
 #Tabs a.current,
 #Tabs a.active,
 #Tabs .current a {
@@ -721,15 +840,18 @@ a.tag li.fa,
   margin-bottom: -1px !important;
   background: transparent !important;
   background-color: transparent !important;
+  border-radius: 0 !important;
 }
 
 #Tabs a.tab,
 #Tabs a.tab:link,
 #Tabs a.tab:visited,
-#Tabs a.tab:active {
+#Tabs a.tab:active,
+#Tabs a.tab:hover {
   border-bottom: 2px solid transparent !important;
   background: transparent !important;
   background-color: transparent !important;
+  border-radius: 0 !important;
 }
 
 /* Tab 内计数徽章 */
@@ -749,20 +871,36 @@ a.tag li.fa,
   line-height: 18px !important;
 }
 
-/* 二级 Tabs — V2EX 结构为 div.cell#SecondaryTabs */
+/* 二级 Tabs — 白底 pill 区，无灰底通栏 */
 
-#SecondaryTabs {
+#SecondaryTabs,
+#SecondaryTabs.cell {
+  position: relative !important;
+  z-index: 0 !important;
   display: flex !important;
   flex-wrap: wrap !important;
   gap: 8px !important;
-  margin-bottom: 0 !important;
-  padding: 10px 16px !important;
-  background: var(--gh-canvas-subtle) !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  padding: 12px 16px !important;
+  background: transparent !important;
   align-items: center !important;
-  border-bottom: 1px solid var(--gh-border-muted) !important;
-  /* font-size:0 用于消除 &nbsp; 空隙，子元素须重置 line-height */
+  border-bottom: 1px solid var(--gh-border) !important;
   font-size: 0 !important;
   line-height: 0 !important;
+}
+
+#SecondaryTabs::before {
+  content: '' !important;
+  position: absolute !important;
+  z-index: -1 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 100vw !important;
+  background: var(--gh-canvas) !important;
+  pointer-events: none !important;
 }
 
 #SecondaryTabs a {
@@ -770,11 +908,11 @@ a.tag li.fa,
   align-items: center !important;
   justify-content: center !important;
   height: auto !important;
-  min-height: 24px !important;
-  padding: 4px 12px !important;
+  min-height: 28px !important;
+  padding: 5px 12px !important;
   border: 1px solid var(--gh-border) !important;
   border-radius: var(--gh-radius-full) !important;
-  font-size: 13px !important;
+  font-size: 14px !important;
   line-height: 20px !important;
   font-weight: 500 !important;
   color: var(--gh-text-secondary) !important;
@@ -2233,7 +2371,7 @@ body.signup,
   flex-direction: column !important;
   align-items: center !important;
   justify-content: flex-start !important;
-  min-height: calc(100vh - 54px) !important;
+  min-height: calc(100vh - 64px) !important;
   padding: 40px 16px !important;
   background: var(--gh-canvas-subtle) !important;
 }
@@ -2346,7 +2484,7 @@ body.signup,
 #Wrapper > .content:has(#Main form input[type="password"]) {
   flex-direction: column !important;
   align-items: center !important;
-  min-height: calc(100vh - 54px) !important;
+  min-height: calc(100vh - 64px) !important;
   padding: 48px 16px !important;
   background: var(--gh-canvas-subtle) !important;
 }
@@ -2581,9 +2719,17 @@ body.signup,
 #Wrapper.Night #Tabs a.tab_current,
 #Wrapper.Night #Tabs a.tab_current:link,
 #Wrapper.Night #Tabs a.tab_current:visited,
-#Wrapper.Night #Tabs a.tab_current:active {
+#Wrapper.Night #Tabs a.tab_current:active,
+#Wrapper.Night #Tabs a.tab_current:hover,
+#Wrapper.Night a.tab_current:hover {
   background: transparent !important;
   background-color: transparent !important;
+  color: var(--gh-text-primary) !important;
+}
+
+#Wrapper.Night #Tabs::before,
+#Wrapper.Night #SecondaryTabs::before {
+  background: var(--gh-canvas) !important;
 }
 
 /* Dark — 搜索框 */

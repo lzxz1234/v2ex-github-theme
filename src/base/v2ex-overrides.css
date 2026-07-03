@@ -1,17 +1,93 @@
 /* === 2.5 V2EX Overrides (combo.css) === */
 
-/* Tab 背景 — 覆盖 a.tab_current:link 等 */
+/* combo.css 全局 a.tab / a.tab_current（无 #Tabs 前缀）— 必须整页重置 */
+#Wrapper a.tab,
+#Wrapper a.tab:link,
+#Wrapper a.tab:visited,
+#Wrapper a.tab:active,
 #Tabs a.tab,
 #Tabs a.tab:link,
 #Tabs a.tab:visited,
-#Tabs a.tab:active,
-#Tabs a.tab_current,
-#Tabs a.tab_current:link,
-#Tabs a.tab_current:visited,
-#Tabs a.tab_current:active {
+#Tabs a.tab:active {
+  display: inline-flex !important;
+  border-radius: 0 !important;
+  margin-right: 0 !important;
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+#Wrapper a.tab:hover,
+#Tabs a.tab:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: var(--gh-text-primary) !important;
+  text-decoration: none !important;
+}
+
+#Wrapper a.tab_current,
+#Wrapper a.tab_current:link,
+#Wrapper a.tab_current:visited,
+#Wrapper a.tab_current:active,
+#Wrapper a.tab_current:hover,
+#Tabs a.tab_current,
+#Tabs a.tab_current:link,
+#Tabs a.tab_current:visited,
+#Tabs a.tab_current:active,
+#Tabs a.tab_current:hover {
+  display: inline-flex !important;
+  border-radius: 0 !important;
+  margin-right: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--gh-text-primary) !important;
+  text-decoration: none !important;
+}
+
+/* combo.css #Tabs / #SecondaryTabs 容器背景 */
+#Tabs,
+#Tabs.inner {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+#SecondaryTabs,
+#SecondaryTabs.cell {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* combo.css #Top 居中 / 高度 */
+#Top {
+  text-align: left !important;
+  font-weight: inherit !important;
+  background-size: auto !important;
+}
+
+.site-nav {
+  padding-top: 0 !important;
+}
+
+/* combo.css 搜索框圆角与内边距 */
+#search-container {
+  margin: 0 !important;
+  padding-left: 0 !important;
+  filter: none !important;
+}
+
+#search-container::before {
+  filter: none !important;
+  background-color: transparent !important;
+}
+
+#search-container #search {
+  padding: 0 8px 0 32px !important;
+  font-size: 14px !important;
+  line-height: normal !important;
 }
 
 /* 顶栏工具链接 */

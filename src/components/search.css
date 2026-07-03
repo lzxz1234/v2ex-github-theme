@@ -8,6 +8,8 @@
   border-radius: var(--gh-radius) !important;
   border: 1px solid var(--gh-topbar-search-border) !important;
   background: var(--gh-topbar-search-bg) !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
   transition: width .3s ease, border-color .15s, box-shadow .15s, background .15s !important;
 }
 
