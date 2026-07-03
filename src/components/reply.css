@@ -267,8 +267,8 @@
   align-items: center !important;
   align-self: stretch !important;
   background: transparent !important;
-  padding-top: 6px !important;
-  padding-bottom: 6px !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
 }
 
 /* ❤️ 感谢数 — 右侧，紧邻操作按钮 */
@@ -276,7 +276,7 @@
   order: 1 !important;
   margin-left: auto !important;
   gap: 4px !important;
-  padding: 6px 4px 6px 0 !important;
+  padding: 8px 4px 8px 0 !important;
   font-size: 12px !important;
   color: var(--gh-text-muted) !important;
   flex: 0 0 auto !important;
@@ -301,7 +301,7 @@
   margin-left: auto !important;
   float: none !important;
   gap: 8px !important;
-  padding: 6px 6px 6px 0 !important;
+  padding: 8px 16px 8px 0 !important;
   opacity: 1 !important;
   visibility: visible !important;
 }
@@ -362,7 +362,7 @@
 /* 用户名 */
 #Main .cell[id^="r_"] table tr td:last-child > strong {
   order: 0 !important;
-  padding: 6px 0 6px 6px !important;
+  padding: 8px 0 8px 16px !important;
   font-weight: 400 !important;
 }
 
@@ -398,7 +398,7 @@
 
 #Main .cell[id^="r_"] table tr td:last-child > .badges {
   order: 0 !important;
-  padding: 6px 0 6px 6px !important;
+  padding: 8px 0 8px 6px !important;
   display: inline-flex !important;
   align-items: center !important;
   gap: 4px !important;
@@ -410,7 +410,7 @@
 
 #Main .cell[id^="r_"] table tr td:last-child > .ago {
   order: 0 !important;
-  padding: 6px 0 !important;
+  padding: 8px 0 !important;
   margin-left: 4px !important;
   font-size: 14px !important;
   color: var(--gh-text-secondary) !important;
@@ -423,7 +423,7 @@
   display: flex !important;
   align-items: center !important;
   gap: 8px !important;
-  padding: 6px !important;
+  padding: 8px 16px !important;
   font-size: 14px !important;
   line-height: 20px !important;
   color: var(--gh-text-secondary) !important;
@@ -439,7 +439,7 @@
   border-top: 1px solid var(--gh-border) !important;
   border-radius: 0 !important;
   margin: 0 !important;
-  padding: 6px !important;
+  padding: 16px !important;
   font-size: 14px !important;
   line-height: 1.5 !important;
   background: var(--gh-canvas) !important;
