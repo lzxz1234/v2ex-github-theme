@@ -167,15 +167,13 @@
 
 /* 回复列表左右留白 */
 #Main .box:has(.cell[id^="r_"]) > .cell[id^="r_"] {
-  padding-left: 16px !important;
-  padding-right: 16px !important;
+  padding: 6px 6px 6px 16px !important;
 }
 
 /* 覆盖全局 .cell 分隔行样式 */
 #Main .cell[id^="r_"] {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
-  margin-bottom: 16px !important;
   border-bottom: none !important;
   background: transparent !important;
 }
