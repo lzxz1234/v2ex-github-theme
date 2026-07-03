@@ -906,7 +906,7 @@ a.tag li.fa,
   padding: 5px 16px 7px !important;
   background: var(--gh-canvas) !important;
   align-items: center !important;
-  border-top: 1px solid var(--gh-border-muted) !important;
+  border-top: none !important;
   border-bottom: 1px solid var(--gh-border) !important;
   font-size: 0 !important;
   line-height: 0 !important;
