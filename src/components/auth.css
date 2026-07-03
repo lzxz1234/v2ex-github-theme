@@ -39,7 +39,6 @@ body.signup,
   background-image: var(--gh-icon-github) !important;
   background-size: 48px 48px !important;
   background-repeat: no-repeat !important;
-  filter: invert(1) !important;
 }
 
 /* 表单卡片 */

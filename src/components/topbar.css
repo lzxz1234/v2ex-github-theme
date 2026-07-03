@@ -4,7 +4,7 @@
 #Top {
   height: 54px !important;
   background: var(--gh-topbar-bg) !important;
-  border-bottom: none !important;
+  border-bottom: 1px solid var(--gh-topbar-border) !important;
   box-shadow: none !important;
   width: 100% !important;
   position: sticky !important;
