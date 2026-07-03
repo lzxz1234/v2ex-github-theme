@@ -6,145 +6,205 @@
   margin-top: 24px !important;
 }
 
-/* 单条回复：头像列 + 评论卡片，无 timeline 竖线 */
-.cell[id^="r_"] {
-  display: block !important;
+/* 回复区标题行 — "N 条回复 • 时间" */
+.box:has(.cell[id^="r_"]) > .cell:first-child {
+  padding: 16px !important;
+  border-bottom: 1px solid var(--gh-border) !important;
+  background: var(--gh-canvas) !important;
+  font-size: 14px !important;
+  color: var(--gh-text-secondary) !important;
+}
+
+/* 覆盖全局 .cell 分隔行样式 */
+#Main .cell[id^="r_"] {
   padding: 0 !important;
   margin-bottom: 16px !important;
   border-bottom: none !important;
   background: transparent !important;
 }
 
-.cell[id^="r_"]:last-child {
+#Main .cell[id^="r_"]:last-child {
   margin-bottom: 0 !important;
 }
 
 /* table → flex 行 */
-.cell[id^="r_"] table,
-.cell[id^="r_"] table tbody,
-.cell[id^="r_"] table tr {
+#Main .cell[id^="r_"] table,
+#Main .cell[id^="r_"] table tbody,
+#Main .cell[id^="r_"] table tr {
   display: block !important;
   width: 100% !important;
 }
 
-.cell[id^="r_"] table tr {
+#Main .cell[id^="r_"] table tr {
   display: flex !important;
   align-items: flex-start !important;
   gap: 16px !important;
 }
 
-.cell[id^="r_"] table tr td {
+#Main .cell[id^="r_"] table tr td {
   display: block !important;
   padding: 0 !important;
   border: none !important;
 }
 
 /* 隐藏头像与正文之间的 spacer 列 */
-.cell[id^="r_"] table tr td[width="10"] {
+#Main .cell[id^="r_"] table tr td[width="10"] {
   display: none !important;
 }
 
-/* 头像列 — 40px */
-.cell[id^="r_"] table tr td:first-child {
+/* 头像列 — 40px 圆形 */
+#Main .cell[id^="r_"] table tr td:first-child {
   flex: 0 0 40px !important;
   width: 40px !important;
+  overflow: hidden !important;
+  border-radius: 50% !important;
 }
 
-.cell[id^="r_"] img.avatar {
+#Main .cell[id^="r_"] img.avatar {
   width: 40px !important;
   height: 40px !important;
+  max-width: 40px !important;
   max-height: 40px !important;
   border-radius: 50% !important;
   border: 1px solid var(--gh-border) !important;
   display: block !important;
+  object-fit: cover !important;
 }
 
 /* 评论卡片列 */
-.cell[id^="r_"] table tr td[width="auto"],
-.cell[id^="r_"] table tr td:last-child {
+#Main .cell[id^="r_"] table tr td[width="auto"],
+#Main .cell[id^="r_"] table tr td:last-child {
   flex: 1 !important;
   min-width: 0 !important;
   display: flex !important;
   flex-wrap: wrap !important;
-  align-items: center !important;
-  column-gap: 6px !important;
+  align-items: stretch !important;
+  align-content: flex-start !important;
+  column-gap: 0 !important;
+  row-gap: 0 !important;
   border: 1px solid var(--gh-border) !important;
   border-radius: var(--gh-radius) !important;
   overflow: hidden !important;
-  background: var(--gh-canvas-subtle) !important;
+  background: var(--gh-canvas) !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
 }
 
 /* 隐藏 V2EX 间距占位 */
-.cell[id^="r_"] .sep3,
-.cell[id^="r_"] .sep5 {
+#Main .cell[id^="r_"] .sep3,
+#Main .cell[id^="r_"] .sep5 {
   display: none !important;
 }
 
-/* 楼层号 — 保留，靠右 */
-.cell[id^="r_"] table tr td:last-child > .fr {
+/* Header 行子元素 — 统一灰底 */
+#Main .cell[id^="r_"] table tr td:last-child > :not(.reply_content) {
+  font-size: 14px !important;
+  line-height: 20px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  align-self: stretch !important;
+  background: var(--gh-canvas-subtle) !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+/* 楼层号 / 回复按钮 — 靠右 */
+#Main .cell[id^="r_"] table tr td:last-child > .fr {
   order: 1 !important;
   margin-left: auto !important;
   float: none !important;
-  display: flex !important;
-  align-items: center !important;
-  padding: 8px 16px 8px 0 !important;
+  gap: 8px !important;
+  padding: 8px 16px 8px 8px !important;
 }
 
-.cell[id^="r_"] .no {
+#Main .cell[id^="r_"] .fr a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 24px !important;
+  height: 24px !important;
+  color: var(--gh-text-muted) !important;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  line-height: 1 !important;
+}
+
+#Main .cell[id^="r_"] .fr a:hover {
+  color: var(--gh-link) !important;
+  text-decoration: none !important;
+}
+
+#Main .cell[id^="r_"] .no {
   color: var(--gh-text-muted) !important;
   font-size: 12px !important;
   font-weight: 400 !important;
+  line-height: 20px !important;
   flex-shrink: 0 !important;
   margin-left: 0 !important;
 }
 
-.cell[id^="r_"] .no::before {
+#Main .cell[id^="r_"] .no::before {
   content: '#' !important;
 }
 
-/* Header 元信息行 */
-.cell[id^="r_"] table tr td:last-child > strong {
+/* 用户名 */
+#Main .cell[id^="r_"] table tr td:last-child > strong {
   order: 0 !important;
   padding: 8px 0 8px 16px !important;
   font-weight: 400 !important;
 }
 
-.cell[id^="r_"] table tr td:last-child > strong a.dark {
+#Main .cell[id^="r_"] table tr td:last-child > strong a.dark {
   color: var(--gh-text-primary) !important;
   font-weight: 600 !important;
   text-decoration: none !important;
 }
 
-.cell[id^="r_"] table tr td:last-child > strong a.dark:hover {
+#Main .cell[id^="r_"] table tr td:last-child > strong a.dark:hover {
   color: var(--gh-link) !important;
   text-decoration: none !important;
 }
 
-.cell[id^="r_"] table tr td:last-child > .badges {
+/* "commented" — 放在用户名/徽章之后，避免 .ago::before 折行错位 */
+#Main .cell[id^="r_"] table tr td:last-child > strong::after {
+  content: ' commented' !important;
+  font-weight: 400 !important;
+  color: var(--gh-text-secondary) !important;
+}
+
+#Main .cell[id^="r_"] table tr td:last-child > strong:has(+ .badges:not(:empty))::after {
+  content: none !important;
+}
+
+#Main .cell[id^="r_"] table tr td:last-child > .badges:not(:empty)::after {
+  content: ' commented' !important;
+  font-weight: 400 !important;
+  color: var(--gh-text-secondary) !important;
+  margin-left: 4px !important;
+}
+
+#Main .cell[id^="r_"] table tr td:last-child > .badges {
   order: 0 !important;
-  padding: 8px 0 !important;
+  padding: 8px 0 8px 4px !important;
   display: inline-flex !important;
   align-items: center !important;
 }
 
-.cell[id^="r_"] .badges:empty {
+#Main .cell[id^="r_"] .badges:empty {
   display: none !important;
 }
 
-.cell[id^="r_"] table tr td:last-child > .ago {
+#Main .cell[id^="r_"] table tr td:last-child > .ago {
   order: 0 !important;
   padding: 8px 0 !important;
+  margin-left: 4px !important;
   font-size: 14px !important;
   color: var(--gh-text-secondary) !important;
 }
 
-.cell[id^="r_"] .ago::before {
-  content: 'commented ' !important;
-}
-
 /* 旧版 reply_header 结构兼容 */
-.cell[id^="r_"] .reply_header,
-.cell[id^="r_"] .small {
+#Main .cell[id^="r_"] .reply_header,
+#Main .cell[id^="r_"] .small {
   order: 0 !important;
   flex: 0 0 100% !important;
   display: flex !important;
@@ -152,12 +212,13 @@
   gap: 8px !important;
   padding: 8px 16px !important;
   font-size: 14px !important;
+  line-height: 20px !important;
   color: var(--gh-text-secondary) !important;
   border-bottom: 1px solid var(--gh-border) !important;
 }
 
 /* 回复正文 */
-.cell[id^="r_"] .reply_content {
+#Main .cell[id^="r_"] .reply_content {
   order: 10 !important;
   flex: 0 0 100% !important;
   width: 100% !important;
@@ -173,36 +234,36 @@
   overflow: visible !important;
 }
 
-.reply_content a {
+#Main .reply_content a {
   color: var(--gh-link) !important;
 }
 
-.reply_content a:hover {
+#Main .reply_content a:hover {
   text-decoration: underline !important;
 }
 
-.reply_content p {
+#Main .reply_content p {
   margin: 0 0 16px !important;
 }
 
-.reply_content p:last-child {
+#Main .reply_content p:last-child {
   margin-bottom: 0 !important;
 }
 
-.reply_content blockquote {
+#Main .reply_content blockquote {
   border-left: 4px solid var(--gh-border) !important;
   color: var(--gh-text-secondary) !important;
   padding: 0 16px !important;
   margin: 0 0 16px !important;
 }
 
-.reply_content ul,
-.reply_content ol {
+#Main .reply_content ul,
+#Main .reply_content ol {
   padding-left: 2em !important;
   margin: 0 0 16px !important;
 }
 
-.reply_content code {
+#Main .reply_content code {
   font-family: var(--gh-font-mono) !important;
   font-size: 85% !important;
   background: rgba(175,184,193,.2) !important;
@@ -210,7 +271,7 @@
   padding: 2px 5px !important;
 }
 
-.reply_content pre {
+#Main .reply_content pre {
   font-family: var(--gh-font-mono) !important;
   background: var(--gh-canvas-subtle) !important;
   border: 1px solid var(--gh-border) !important;
@@ -222,22 +283,22 @@
   margin: 0 0 16px !important;
 }
 
-.reply_content pre code {
+#Main .reply_content pre code {
   background: transparent !important;
   padding: 0 !important;
   border-radius: 0 !important;
   font-size: 100% !important;
 }
 
-.reply_content img {
+#Main .reply_content img {
   max-width: 100% !important;
   border-radius: var(--gh-radius) !important;
   height: auto !important;
 }
 
 /* OP → Author 徽章（GitHub 样式） */
-.badge.op,
-.op-label {
+#Main .badge.op,
+#Main .op-label {
   color: var(--gh-accent) !important;
   background: transparent !important;
   border: 1px solid var(--gh-accent) !important;
@@ -250,8 +311,8 @@
   align-items: center !important;
 }
 
-.badge.op::after,
-.op-label::after {
+#Main .badge.op::after,
+#Main .op-label::after {
   content: 'Author' !important;
   font-size: 12px !important;
   line-height: 18px !important;
