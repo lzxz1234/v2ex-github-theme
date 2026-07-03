@@ -54,9 +54,17 @@
 
 /* 元信息行 */
 #Main .cell.item .topic_info {
+  display: block !important;
   font-size: 12px !important;
   color: var(--gh-text-secondary) !important;
   margin-top: 4px !important;
+  line-height: 1.5 !important;
+  word-break: break-word !important;
+}
+
+#Main .cell.item table tr td[width="auto"] {
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
 }
 
 /* 节点标签 */

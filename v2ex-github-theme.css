@@ -228,6 +228,17 @@ img {
 #Wrapper {
   background-color: var(--gh-canvas) !important;
   background-image: none !important;
+  text-align: left !important;
+}
+
+/* combo.css 浮动布局 — 由 three-column.css flex 接管 */
+
+#Main {
+  width: auto !important;
+}
+
+#Rightbar {
+  float: none !important;
 }
 
 /* combo.css #Top 居中 / 高度 */
@@ -499,11 +510,23 @@ a.tag li.fa,
 #Wrapper > .content {
   display: flex !important;
   flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  width: 100% !important;
   max-width: 1280px !important;
   margin: 0 auto !important;
   padding: 16px !important;
   gap: 24px !important;
-  align-items: flex-start !important;
+  box-sizing: border-box !important;
+}
+
+/* 覆盖 combo.css 的 float 布局，避免与 flex 混用导致主栏/侧栏分离 */
+
+#Main,
+#Rightbar,
+#Leftbar {
+  float: none !important;
 }
 
 /* 左侧栏 */
@@ -1007,9 +1030,17 @@ a.tag li.fa,
 /* 元信息行 */
 
 #Main .cell.item .topic_info {
+  display: block !important;
   font-size: 12px !important;
   color: var(--gh-text-secondary) !important;
   margin-top: 4px !important;
+  line-height: 1.5 !important;
+  word-break: break-word !important;
+}
+
+#Main .cell.item table tr td[width="auto"] {
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
 }
 
 /* 节点标签 */

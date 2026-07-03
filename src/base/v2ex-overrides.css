@@ -65,6 +65,16 @@
 #Wrapper {
   background-color: var(--gh-canvas) !important;
   background-image: none !important;
+  text-align: left !important;
+}
+
+/* combo.css 浮动布局 — 由 three-column.css flex 接管 */
+#Main {
+  width: auto !important;
+}
+
+#Rightbar {
+  float: none !important;
 }
 
 /* combo.css #Top 居中 / 高度 */

@@ -4,11 +4,22 @@
 #Wrapper > .content {
   display: flex !important;
   flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  width: 100% !important;
   max-width: 1280px !important;
   margin: 0 auto !important;
   padding: 16px !important;
   gap: 24px !important;
-  align-items: flex-start !important;
+  box-sizing: border-box !important;
+}
+
+/* 覆盖 combo.css 的 float 布局，避免与 flex 混用导致主栏/侧栏分离 */
+#Main,
+#Rightbar,
+#Leftbar {
+  float: none !important;
 }
 
 /* 左侧栏 */
