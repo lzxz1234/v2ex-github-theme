@@ -2524,12 +2524,12 @@ body.signup,
 
 /* === 16.1 Sign In Layout (:has 检测真实 DOM) === */
 
-/* 排除设置页（含 #Tabs）；设置「密码」tab 也有 password 输入框，不能误匹配 */
+/* 仅匹配登录页（侧栏含 .sign_in_methods）；勿用 password 选择器，设置「密码」tab 会误伤 */
 
 #Wrapper.signin > .content,
 #Wrapper > .content.signin,
 body.signin #Wrapper > .content,
-#Wrapper > .content:has(#Main form input[type="password"]):not(:has(#Tabs)) {
+#Wrapper > .content:has(.sign_in_methods) {
   flex-direction: column !important;
   align-items: center !important;
   min-height: calc(100vh - 64px) !important;
@@ -2540,7 +2540,7 @@ body.signin #Wrapper > .content,
 #Wrapper.signin > .content #Main,
 #Wrapper > .content.signin #Main,
 body.signin #Wrapper > .content #Main,
-#Wrapper > .content:has(#Main form input[type="password"]):not(:has(#Tabs)) #Main {
+#Wrapper > .content:has(.sign_in_methods) #Main {
   order: 1 !important;
   width: 100% !important;
   max-width: 340px !important;
@@ -2550,7 +2550,7 @@ body.signin #Wrapper > .content #Main,
 #Wrapper.signin > .content #Rightbar,
 #Wrapper > .content.signin #Rightbar,
 body.signin #Wrapper > .content #Rightbar,
-#Wrapper > .content:has(#Main form input[type="password"]):not(:has(#Tabs)) #Rightbar {
+#Wrapper > .content:has(.sign_in_methods) #Rightbar {
   order: 2 !important;
   width: 100% !important;
   max-width: 340px !important;
@@ -2558,12 +2558,12 @@ body.signin #Wrapper > .content #Rightbar,
   margin-top: 16px !important;
 }
 
-#Main > .box:has(input[type="password"]):not(:has(#Tabs)) {
+#Wrapper > .content:has(.sign_in_methods) #Main .box:has(input[type="password"]) {
   width: 100% !important;
   max-width: 340px !important;
 }
 
-#Main > .box:has(input[type="password"]):not(:has(#Tabs)) .header {
+#Wrapper > .content:has(.sign_in_methods) #Main .box:has(input[type="password"]) .header {
   font-size: 14px !important;
   font-weight: 600 !important;
   padding: 12px 16px !important;
@@ -2571,34 +2571,34 @@ body.signin #Wrapper > .content #Rightbar,
   border-bottom: 1px solid var(--gh-border) !important;
 }
 
-#Main > .box:has(input[type="password"]):not(:has(#Tabs)) .cell table {
+#Wrapper > .content:has(.sign_in_methods) #Main .box:has(input[type="password"]) .cell table {
   display: block !important;
   width: 100% !important;
 }
 
-#Main > .box:has(input[type="password"]):not(:has(#Tabs)) .cell table tr {
+#Wrapper > .content:has(.sign_in_methods) #Main .box:has(input[type="password"]) .cell table tr {
   display: block !important;
   margin-bottom: 16px !important;
 }
 
-#Main > .box:has(input[type="password"]):not(:has(#Tabs)) .cell table td {
+#Wrapper > .content:has(.sign_in_methods) #Main .box:has(input[type="password"]) .cell table td {
   display: block !important;
   width: 100% !important;
   padding: 0 !important;
 }
 
-#Main > .box:has(input[type="password"]):not(:has(#Tabs)) .cell table td:first-child {
+#Wrapper > .content:has(.sign_in_methods) #Main .box:has(input[type="password"]) .cell table td:first-child {
   font-size: 14px !important;
   font-weight: 600 !important;
   color: var(--gh-text-primary) !important;
   margin-bottom: 6px !important;
 }
 
-#Main > .box:has(input[type="password"]):not(:has(#Tabs)) input.sl {
+#Wrapper > .content:has(.sign_in_methods) #Main .box:has(input[type="password"]) input.sl {
   width: 100% !important;
 }
 
-#Main > .box:has(input[type="password"]):not(:has(#Tabs)) input[type="submit"] {
+#Wrapper > .content:has(.sign_in_methods) #Main .box:has(input[type="password"]) input[type="submit"] {
   width: 100% !important;
   margin-top: 8px !important;
   padding: 8px 16px !important;
@@ -2636,6 +2636,94 @@ body.signin #Wrapper > .content #Rightbar,
   padding: 12px 16px !important;
   background: var(--gh-canvas) !important;
   border-bottom: 1px solid var(--gh-border) !important;
+}
+
+/* === Settings Pages (/settings/*) === */
+
+/* 设置页无 #Tabs，使用 .page-content-header + .cell 内 a.tab；须覆盖误伤的登录页布局 */
+
+#Wrapper > .content:has(#Main .page-content-header):has(#Main form[action^="/settings"]) {
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  min-height: unset !important;
+  padding: 16px !important;
+  background: transparent !important;
+}
+
+#Wrapper > .content:has(#Main .page-content-header):has(#Main form[action^="/settings"]) #Main {
+  order: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  flex: 1 1 0% !important;
+}
+
+#Wrapper > .content:has(#Main .page-content-header):has(#Main form[action^="/settings"]) #Rightbar {
+  order: 1 !important;
+  width: 296px !important;
+  max-width: none !important;
+  flex: 0 0 auto !important;
+  margin-top: 0 !important;
+}
+
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: flex-end !important;
+  gap: 0 !important;
+  margin: 0 !important;
+  padding: 0 16px !important;
+  border-bottom: 1px solid var(--gh-border) !important;
+  background: var(--gh-canvas) !important;
+}
+
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 10px 12px !important;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  font-weight: 400 !important;
+  color: var(--gh-text-secondary) !important;
+  border-bottom: 2px solid transparent !important;
+  margin-bottom: -1px !important;
+  border-radius: 0 !important;
+  text-decoration: none !important;
+  transition: color .15s, border-color .15s !important;
+  white-space: nowrap !important;
+}
+
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab:hover {
+  color: var(--gh-text-primary) !important;
+  border-bottom-color: var(--gh-border) !important;
+  background: transparent !important;
+  text-decoration: none !important;
+}
+
+#Main > .box:has(.page-content-header) > .cell:has(a.tab[href^="/settings/"]) a.tab_current {
+  color: var(--gh-text-primary) !important;
+  font-weight: 600 !important;
+  border-bottom: 2px solid #fd8c73 !important;
+  background: transparent !important;
+}
+
+#Main > .box:has(.page-content-header) .page-content-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 16px !important;
+  border-bottom: 1px solid var(--gh-border) !important;
+}
+
+#Main > .box:has(.page-content-header) .page-content-header h2 {
+  margin: 0 !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: var(--gh-text-primary) !important;
+}
+
+#Main > .box:has(.page-content-header) .page-content-header img {
+  width: 48px !important;
+  height: 48px !important;
 }
 
 /* === 17. Bottom (#Bottom) === */

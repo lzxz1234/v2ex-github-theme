@@ -22,5 +22,6 @@
 @import "./components/profile.css";
 @import "./components/auth.css";
 @import "./components/auth-signin.css";
+@import "./components/settings.css";
 @import "./components/bottom.css";
 @import "./themes/dark.css";
