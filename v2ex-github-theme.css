@@ -387,12 +387,15 @@ a.tag li.fa,
 
 /* 顶栏右侧图标按钮（通知铃铛、加号） */
 
+/* V2EX 默认给 .tools 设了 flex:1 0 200px，会撑满剩余空间导致 margin-left:auto 失效；
+   这里改回 flex:0 0 auto，让右侧导航能真正靠右对齐 */
+
 #Top .tools {
   display: flex !important;
   align-items: center !important;
   gap: 4px !important;
   margin-left: auto !important;
-  flex-shrink: 0 !important;
+  flex: 0 0 auto !important;
 }
 
 /* 通知铃铛按钮 */
