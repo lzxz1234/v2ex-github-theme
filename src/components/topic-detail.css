@@ -159,7 +159,7 @@ a.tag:hover {
 /* ——— 10.2 正文 Markdown 样式 ——— */
 .topic_content {
   font-size: 16px !important;
-  line-height: 1.7 !important;
+  line-height: 1.5 !important;
   color: var(--gh-text-primary) !important;
   padding: 16px !important;
   word-break: break-word !important;
@@ -185,7 +185,11 @@ a.tag:hover {
 .topic_content h6 { font-size: .85em !important; color: var(--gh-text-secondary) !important; }
 
 .topic_content p {
-  margin: 0 0 16px !important;
+  margin: 0 0 0.4em !important;
+}
+
+.topic_content p:last-child {
+  margin-bottom: 0 !important;
 }
 
 .topic_content code {
