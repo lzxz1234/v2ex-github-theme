@@ -104,11 +104,6 @@
   color: var(--gh-text-primary) !important;
 }
 
-#Wrapper.Night #Tabs::before,
-#Wrapper.Night #SecondaryTabs::before {
-  background: var(--gh-canvas) !important;
-}
-
 /* Dark — 搜索框 */
 #Wrapper.Night #search-container {
   background: var(--gh-canvas-inset) !important;
